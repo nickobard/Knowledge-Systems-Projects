@@ -1,27 +1,42 @@
-#-------------------------------------------------------------------------
+# -------------------------------------------------------------------------
 #
 #  BI-ZNS: Šablona pro úlohu Inferenční systém s dopředným řetězením
 #  (c) 2022 Ladislava Smítková Janků <ladislava.smitkova@fit.cvut.cz>
 #
-#-------------------------------------------------------------------------
+# -------------------------------------------------------------------------
 
 import parser
 import tfact
 import truleitem
 import trule
 
-def solve( facts, rules, atoms):
-	# ======================================================================
-	# Zde doplňte vhodný kód, který provede doplnění faktů v seznamu facts.
-	# Seznam rules obsahuje pravidla a vektor atoms seznam všech atomů.
-	# Po dokončení této procedury musí být v seznamu facts všechny fakty,
-	# které lze podle daných pravidel odvodit.
-	# Při implementaci se nemusíte omezovat pouze na tuto funkci. Pokud se
-	# vám to hodí, upravte si (třeba v zájmu unifikace) i třídu TRule.
-	# ======================================================================
 
-	pass
-	
+def standardize_variables(rule):
+    pass
+
+
+def unify(x, y):
+    pass
+
+
+def solve(facts, rules, atoms):
+    # ======================================================================
+    # Zde doplňte vhodný kód, který provede doplnění faktů v seznamu facts.
+    # Seznam rules obsahuje pravidla a vektor atoms seznam všech atomů.
+    # Po dokončení této procedury musí být v seznamu facts všechny fakty,
+    # které lze podle daných pravidel odvodit.
+    # Při implementaci se nemusíte omezovat pouze na tuto funkci. Pokud se
+    # vám to hodí, upravte si (třeba v zájmu unifikace) i třídu TRule.
+    # ======================================================================
+    # while True:
+    #     new = {}
+    #     for rule in rules:
+    #         parser.parse()
+    #         atomic_sentences, q = standardize_variables(rule)
+
+    pass
+
+
 """
     Často kladené otázky
      --------------------
