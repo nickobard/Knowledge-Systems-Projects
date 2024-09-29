@@ -68,6 +68,12 @@ class TFact:
         return self._arguments
 
     def translate(self, dictionary):
+        """
+        Translate arguments in the fact - for example arguments are [ X, Y ],
+        then using dictionary map them to other names, X -> A, Y -> B.
+        :param dictionary: stores mapping of arguments to new names.
+        :return: fact with translated arguments.
+        """
         args = []
         for a in self._arguments:
             args.append(dictionary[a])
@@ -95,7 +101,7 @@ class TFact:
                 print(i, end='')
             else:
                 print(',' + i, end='')
-        print(')', end='');
+        print(')', end='')
 
     def load(self, newId, src):
         self._arguments = []
@@ -108,7 +114,7 @@ class TFact:
             self._arguments.append(p.value)
 
             p = parser.parse(src)
-            if (p.productType == parser.TParserProductType.P_RIGHT):
+            if p.productType == parser.TParserProductType.P_RIGHT:
                 break
             parser.check(parser.TParserProductType.P_COMMA, p, srcTxt)
 
@@ -123,7 +129,7 @@ class TFact:
         self._id = p.value
 
         p = parser.parse(src)
-        parser.check(parser.TParserProductType.P_LEFT, p, factOrig);
+        parser.check(parser.TParserProductType.P_LEFT, p, factOrig)
         while True:
             p = parser.parse(src)
             parser.check(parser.TParserProductType.P_IDENT, p, factOrig)

@@ -28,11 +28,10 @@ def solve(facts, rules, atoms):
     # Při implementaci se nemusíte omezovat pouze na tuto funkci. Pokud se
     # vám to hodí, upravte si (třeba v zájmu unifikace) i třídu TRule.
     # ======================================================================
-    # while True:
-    #     new = {}
-    #     for rule in rules:
-    #         parser.parse()
-    #         atomic_sentences, q = standardize_variables(rule)
+    while True:
+        new = {}
+        for rule in rules:
+            rule
 
     pass
 

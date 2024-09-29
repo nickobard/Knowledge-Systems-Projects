@@ -67,7 +67,7 @@ class TRuleItem:
 
     def translateFact(self, dictionary):
         if self._itemType != TRuleItemType.R_FACT:
-            return None;
+            return None
         return self._fact.translate(dictionary)
 
     def compareAtoms(self, dictionary):

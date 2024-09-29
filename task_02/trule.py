@@ -27,7 +27,7 @@ class TRule:
             ident = p.value
 
             if ident == "not":
-                self._ruleItems.append(truleitem.TRuleItem(truleitem.TRuleItemType.R_NOT));
+                self._ruleItems.append(truleitem.TRuleItem(truleitem.TRuleItemType.R_NOT))
             else:
                 p = parser.parse(rule)
                 if p.productType == parser.TParserProductType.P_NOTEQUAL:
@@ -60,6 +60,7 @@ class TRule:
                     raise NameError('Missing then/and/or');
 
         # then
+        # load the consequent
         self._ruleFact = tfact.TFact(None)
         self._ruleFact.loadAll(rule)
 
@@ -90,6 +91,21 @@ class TRule:
         return len(self._listOfArguments)
 
     def evaluate(self, args, facts):
+        """
+        Given arguments for all variables, check if we can infer new fact,
+        using knowledge from the KB of existing facts.
+        :param args: atoms to substitute variables in the rule sentence to infer the q.
+        :param facts: known facts from the KB.
+        :return: new fact or None if nothing can be inferred with these arguments.
+        It is not checked that the new fact is not already in the KB.
+
+        **Example:**
+            If args = ['tony', 'abe'] and we have in KB fact father(tony, abe),
+            then if this rule is father(X, Y) => parent(X, Y), applying args,
+            we get substitution father(tony, abe) => parent(tony, abe).
+            The antecedent is true (we have the fact that father(tony, abe) in KB),
+            then the consequent is true, so we get the fact parent(tony, abe).
+        """
         if len(args) != len(self._listOfArguments):
             raise NameError(
                 "Internal error: Size of the vector passed as parameter to TRule::evaluate() and size of listOfArguments must be same.")
@@ -97,6 +113,7 @@ class TRule:
         dictionary = dict()
         i = 0
         for k in self._listOfArguments:
+            # Assign to each variable its atom argument
             dictionary[k] = args[i]
             i = i + 1
 
@@ -105,14 +122,20 @@ class TRule:
 
         for r in self._ruleItems:
             if r.itemType == truleitem.TRuleItemType.R_FACT:
+                # Substitute variables with atoms
                 tf = r.translateFact(dictionary)
 
                 result = False
+
+                # check if the fact with substitution already exists in KB
                 for f in facts:
                     if f.compare(tf):
+                        # if there exists such fact, then stop comparing,
+                        # mark result of the antecedent as true (for now)
                         result = True
-                        break;
+                        break
 
+                # check negation and get to the next rule item.
                 if negation:
                     negation = False
                     result = not result
@@ -121,6 +144,9 @@ class TRule:
                 negation = not negation
 
             elif r.getType == truleitem.TRuleItemType.R_AND:
+                # if we get AND and previous sentence is FALSE,
+                # then the whole result is automatically FALSE,
+                # the consequent - the new fact - cannot be inferred.
                 if not result:
                     return None
 
