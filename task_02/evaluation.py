@@ -9,17 +9,24 @@ import parser
 import tfact
 import truleitem
 import trule
+import itertools
+
+from task_02.predikaty import facts
 
 
-def standardize_variables(rule):
-    pass
+def substitutions(atoms: list[str], rule: trule.TRule):
+    variables = rule._listOfArguments
+    atoms_combinations = itertools.product(atoms, len(variables))
+    for combination in atoms_combinations:
+        theta = {x: y for x, y in zip(variables, combination)}
+        yield theta
 
 
 def unify(x, y):
     pass
 
 
-def solve(facts, rules, atoms):
+def solve(facts: list[tfact.TFact], rules: list[trule.TRule], atoms):
     # ======================================================================
     # Zde doplňte vhodný kód, který provede doplnění faktů v seznamu facts.
     # Seznam rules obsahuje pravidla a vektor atoms seznam všech atomů.
@@ -29,11 +36,18 @@ def solve(facts, rules, atoms):
     # vám to hodí, upravte si (třeba v zájmu unifikace) i třídu TRule.
     # ======================================================================
     while True:
-        new = {}
+        new = []
         for rule in rules:
-            rule
-
-    pass
+            thetas = substitutions(atoms, rule)
+            q = rule.evaluate(args=thetas, facts=facts)
+            if q is None:
+                continue
+            if all([unify(q, fact) is None for fact in facts + new]):
+                new.append(q)
+        if len(new) != 0:
+            facts = facts + new
+        else:
+            break
 
 
 """
