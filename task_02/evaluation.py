@@ -21,8 +21,13 @@ def substitutions(atoms: list[str], rule: trule.TRule):
         theta = {x: y for x, y in zip(variables, combination)}
         yield theta
 
+def has_variable(x: tfact.TFact):
+    pass
 
-def unify(x, y):
+def unify(x, y, substitutions):
+	"""
+ 	Unify algorithm, simplified for this task.
+	"""
     pass
 
 
