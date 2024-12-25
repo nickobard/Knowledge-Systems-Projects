@@ -14,10 +14,11 @@ identifikace:-
   error(Error_type), nl,
   write('Popsaná chyba je: '), write(Error_type), write('.'), nl.
 identifikace:-
-  write('Nejsem schopen provést detekci.') ,nl.
+  write('Nebyla detekovaná žádná chyba.') ,nl.
 
 
 % Knowledge Base
+
 error('chyba č. 1 - neplatné IČO odběratele'):-
    \+ receipt_type('zjednodušený daňový doklad (paragon)'),
    has('udaje o odběrateli'),
@@ -26,9 +27,9 @@ error('chyba č. 1 - neplatné IČO odběratele'):-
 
 
 error('chyba č. 2 - chybí údaje o dodavateli (IČO,DIČ)'):-
-    \+ has('IČO dodavetele');
-    \+ (receipt_type('danovy doklad'), has('DIČ dodavatel')).
-
+    \+ has('udaje o dodavateli');
+    \+ has('IČO dodavatele');
+    \+ (receipt_type('danovy doklad'), has('DIČ dodavatele')).
 
 error('chyba č. 3 - chybí údaje of zápisu dodavatele do obchodního rejstříku'):-
     total_sum('> 10000'),
@@ -52,11 +53,11 @@ error('chyba č. 7 - jedná se o zjednodušený daňový doklad, ale celková č
     total_sum('> 10000').
 
 error('chyba č. 8 - chybí celková částka'):-
-    \+ has('total sum').
+    \+ has('celkova částka').
 
 error('chyba č. 9 - chybná celková částka.'):-
-    has('total sum'),
-    \+ valid('total sum').
+    has('celkova částka'),
+    \+ valid('celkova částka').
 
 error('chyba č. 10 - chybí rekapitulace DPH.'):-
     receipt_type('danovy doklad'),
@@ -65,7 +66,7 @@ error('chyba č. 10 - chybí rekapitulace DPH.'):-
 
 error('chyba č. 11 - chybná sazba DPH'):-
     has('učtované potraviny'),
-    \+ has('sazba DPH 12%').
+    \+ (has('sazba DPH'), has('sazba DPH 12%')).
 
 error('chyba č. 12 - neplatné IČO dodavatele.'):-
     has('udaje o dodavateli'),
@@ -76,7 +77,6 @@ error('chyba č. 13 - chybí údaje o sazbě DPH'):-
     receipt_type('danovy doklad'),
     \+ has('sazba DPH').
 
-% Knowledge Base
 
 receipt_type('zjednodušený daňový doklad (paragon)'):-
     receipt_type('danovy doklad'),
@@ -85,165 +85,71 @@ receipt_type('zjednodušený daňový doklad (paragon)'):-
 receipt_type('danovy doklad'):-
     ask('Jedna se o: ', 'danovy doklad (dodavatel je platce DPH a ma vycislenou DPH)').
 
+
 total_sum(Condition):-
-    has('total sum'),
-    ask('The receipt sum is: ', Condition).
+    has('celkova částka'),
+    ask('Pro celkovou částku platí: ', Condition).
 has(Attribute):-
-    ask('Has: ', Attribute).
+    ask('Obsahuje: ', Attribute).
 valid(Attribute):-
-    write('You need check validity of the attribute: '), write(Attribute),
+    write('Je potřeba zkontrolovat správnost atributu: '), write(Attribute),
     nl, nl,
     instructions(Attribute), nl,
-    ask('Has valid: ', Attribute).
+    ask('Má spravně: ', Attribute).
+
 
 % Interface
 
-% check if this questions was answered with `yes`
+% check if this questions was answered with `ano` (yes)
 ask(Question, Value):-
-    known(Question, Value, 'yes'), % check if such fact with `yes` answer exists in the KB.
+    known(Question, Value, 'ano'), % check if such fact with `ano` answer exists in the KB.
     !. % if exists, stop backtracking and return success.
 
-% check if this questions was answered with `no`
+% check if this questions was answered with `ne` (no)
 ask(Question, Value):-
-    known(Question, Value, 'no'), % check if such fact with `yes` answer exists in the KB.
+    known(Question, Value, 'ne'), % check if such fact with `ne` answer exists in the KB.
     !, fail. % if exists, stop backtracking and return failure.
 
 ask(Question, Value):-
     repeat,
     write(Question), write(Value),
-    write('? (yes or no): '),
+    write('? (ano nebo ne): '),
     read(Answer),
         (
-            Answer = 'yes' ->
-                asserta(known(Question, Value, 'yes')), !;
-            Answer = 'no' ->
-                asserta(known(Question, Value, 'no')), !, fail;
-            writeln('Invalid input, please answer yes or no.'), fail
+            Answer = 'ano' ->
+                asserta(known(Question, Value, 'ano')), !;
+            Answer = 'ne' ->
+                asserta(known(Question, Value, 'ne')), !, fail;
+            writeln('Nepsrávný vstup, prosím odpovězte: ano nebo ne:'), fail
         ).
+
 
 % Instructions for validation
 
 instructions('IČO odběratele'):-
-    write("Here are instructions how to check the IČO."),
+    nl,
+    writeln('Jak ověřit platnost identifikačního čísla (IČO):'),
+    nl,
+    writeln('1. - První až sedmou číslici (zleva) vynásobíme čísly 8, 7, 6, 5, 4, 3, 2 a součiny sečteme.'),
+    writeln('2 - Spočítáme zbytek po dělení jedenácti: zbytek = soucet % 11'),
+    writeln('3 - Pro poslední osmou číslici c musí platit:'),
+    writeln('\ta) - je-li zbytek 0 nebo 10, pak c = 1'),
+    writeln('\tb) - je-li zbytek 1, pak c = 0'),
+    writeln('\tc) - v ostatních případech je c = 11 - zbytek'),
     nl.
 
 instructions('IČO dodavatele'):-
     instructions('IČO odběratele').
 
 instructions('datum vyhotoveni'):-
-    write("Here are instructions how to check the datum vyhotoveni."),
+    nl,
+    writeln('Jak ověřit správnost datumu vyhotovení:'),
+    nl,
+    writeln('Správný datum vyhotovení není v budoucnosti nebo v hluboké minulosti. Pro zjednodušení uvažujeme pouze rok 2024.'),
     nl.
 
-instructions('total sum'):-
-    write("Here are instructions how to check the total sum."),
+instructions('celkova částka'):-
+    writeln('Jak ověřít správnost celkové částky:'),
+    nl,
+    writeln('Celková částka musí být stejná jako součet částek u položek uvedených na dokladu.'),
     nl.
-
-% ----------------------
-% Báze znalostí
-% ----------------------
-druh('babočka kopřivová'):-
-  rad(motyli),
-  skupina(motylicz),
-  barva('oranžová se skvrnami').
-druh('acraea acrita'):-
-  rad(motyli),
-  zije('Afrika'),
-  barva('oranžová se skvrnami').
-druh('bělopásek távolníkový'):-
-  rad(motyli),
-  skupina(motylicz),
-  barva('černá s bílými skvrnami').
-druh('modrásek jehlicovitý'):-
-  rad(motyli),
-  skupina(motylicz),
-  barva('modrá').
-druh('včela medonosná'):-
-  rad(blanokridli),
-  celed(vceloviti),
-  obrana('bodnutí žihadlem').
-druh('čmelák lesní'):-
-  rad(blanokridli),
-  celed(vceloviti),
-  zije('Česká republika'),
-  telo('zavalité').
-druh('žlutnatka obecná'):-
-  skupina(mouchy),
-  barva('žlutá').
-druh('bzučivka obecná'):-
-  skupina(mouchy),
-  barva('černá').
-druh('slunéčko sedmitečné'):-
-  kridla('krovky i blanitá'),
-  celed(slunecka),
-  barva('červená s černými tečkami'),
-  pocettecek(sedm).
-
-
-rad(motyli):-
-  kridla('velká s šupinkami'),
-  velikost('4-5 cm'),
-  larva(housenka).
-rad(dvoukridli):-
-  kridla('blanitá'),
-  kridlapocet('dvě').
-rad(blanokridli):-
-  kridla('blanitá'),
-  kridlapocet('dva páry').
-
-celed(slunecka):-
-  dravost(hmyz).
-celed(vceloviti):-
-  zvuk('bzučí'),
-  opylovac('opylovač').
-
-skupina(mouchy):-
-  rad(dvoukridli),
-  zvuk('bzučí').
-skupina(motylicz):-
-  zije('Česká republika').
-
-% ----------------------
-% Uživatelské rozhraní
-% ----------------------
-
-% ziskani hodnoty atributu od uzivatele
-
-kridlapocet(X):-dotaz('Má křídla: ', kridlapocet , X).
-barva(X):- dotaz('Převládá na těle jedince barva ', barva, X).
-velikost(X):- dotaz('Velikost jedince je ', velikost, X).
-larva(X):- dotaz('Je larva ',larva, X).
-zije(X):- dotaz('Žije v: ', zije, X).
-obrana(X):- dotaz('Bráni se ', obrana, X).
-zvuk(X):- dotaz('Zvuk: ', zvuk, X).
-pocettecek(X):- dotaz('Počet teček je ',pocettecek, X).
-telo(X):- dotaz('Má tělo ', telo,X).
-dravost(X):-dotaz('Loví jiný ', dravy, X).
-opylovac(X):-dotaz('Je to ', opyluje, X).
-kridla(X):- dotaz('Má křídla: ', kridla, X).
-
-% uzivatelske rozhrani, implementace klauzule dotaz
-
-% otestuje, zda je zaznam odpovedi ano pro danou kombinaci atributu a hodnoty jiz v bazi faktu
-dotaz(O,X,Y):-
-    writeln('1. dotaz'),
-  known(ano,O,X,Y),  !.
-
-% otestuje, zda je zaznam odpovedi ne pro danou kombinac atribut a hodnoty jiz v bazi faktu
-dotaz(O,X,Y):-
-writeln('2. dotaz'),
-  known(ne,O, X,Y),
-  !, fail.
-
-% otestuje, zda byl polozen stejny dotaz na stejny typ atributu, ale bez vazby na soucasnou hodnotu atributu a byla na nej odpoved ano.
-dotaz(O,X,_):-
-  writeln('3. dotaz'),
-  known(ano,O,X,_),  !, fail.
-
-% dotaz, zobrazi otazku a nacte hodnotu ze vstupu
-dotaz(O,X,Y):-
-writeln('4. dotaz'),
-write(O), write(Y) , write(', X: ('), write(X), write(')'),
-write('? (ano nebo ne): '),
-read(A),
-asserta(known(A,O,X,Y)),
-A = ano.
