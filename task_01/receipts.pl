@@ -25,6 +25,9 @@ error('chyba č. 1 - neplatné IČO odběratele'):-
    has('IČO odběratele'),
    \+ valid('IČO odběratele').
 
+error('chyba č. 7 - jedná se o zjednodušený daňový doklad, ale celková částka je přes 10.000 Kč'):-
+    receipt_type('zjednodušený daňový doklad (paragon)'),
+    total_sum('> 10000').
 
 error('chyba č. 2 - chybí údaje o dodavateli (IČO,DIČ)'):-
     \+ has('udaje o dodavateli');
@@ -34,12 +37,12 @@ error('chyba č. 2 - chybí údaje o dodavateli (IČO,DIČ)'):-
 error('chyba č. 3 - chybí údaje of zápisu dodavatele do obchodního rejstříku'):-
     total_sum('> 10000'),
     has('udaje o dodavateli'),
-    has('udaje o zapisu do obchodniho rejstriku').
+    \+ has('udaje o zapisu do obchodniho rejstriku').
 
 error('chyba č. 4 - chybí údaje of zápisu dodavatele do živnostenského rejstříku'):-
     total_sum('> 10000'),
     has('udaje o dodavateli'),
-    has('udaje o zapisu do živnostenského rejstriku').
+    \+ has('udaje o zapisu do živnostenského rejstriku').
 
 error('chyba č. 5 - chybné datum vyhotovení účetního dokladu (30.2.2024)'):-
     has('datum vyhotoveni'),
@@ -47,10 +50,6 @@ error('chyba č. 5 - chybné datum vyhotovení účetního dokladu (30.2.2024)')
 
 error('chyba č. 6 - chybějící datum vyhotovení účetního dokladu'):-
     \+ has('datum vyhotoveni').
-
-error('chyba č. 7 - jedná se o zjednodušený daňový doklad, ale celková částka je přes 10.000 Kč'):-
-    receipt_type('zjednodušený daňový doklad (paragon)'),
-    total_sum('> 10000').
 
 error('chyba č. 8 - chybí celková částka'):-
     \+ has('celkova částka').
@@ -80,9 +79,10 @@ error('chyba č. 13 - chybí údaje o sazbě DPH'):-
 
 receipt_type('zjednodušený daňový doklad (paragon)'):-
     receipt_type('danovy doklad'),
-    ask_with_instructions('Jedna se o: ', 'zjednoduseny danovy doklad', 'zjednodušený daňový doklad (paragon)').
+    ask_with_instructions('Jedna se o: ', 'zjednodušený daňový doklad (paragon)', 'zjednodušený daňový doklad (paragon)').
 
 receipt_type('danovy doklad'):-
+    has('udaje o dodavateli'),
     ask('Jedna se o: ', 'danovy doklad (dodavatel je platce DPH, je uvedeno DIČ a ma vycislenou DPH)').
 
 
@@ -182,3 +182,5 @@ instructions('zjednodušený daňový doklad (paragon)'):-
     nl.
 
 instructions('no instructions').
+
+
