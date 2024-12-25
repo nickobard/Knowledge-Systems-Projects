@@ -55,11 +55,11 @@ error('chyba č. 7 - jedná se o zjednodušený daňový doklad, ale celková č
 error('chyba č. 8 - chybí celková částka'):-
     \+ has('celkova částka').
 
-error('chyba č. 9 - chybná celková částka.'):-
+error('chyba č. 9 - chybná celková částka'):-
     has('celkova částka'),
     \+ valid('celkova částka').
 
-error('chyba č. 10 - chybí rekapitulace DPH.'):-
+error('chyba č. 10 - chybí rekapitulace DPH'):-
     receipt_type('danovy doklad'),
     \+ has('rekapitulace DPH'),
     \+ has('sazba DPH pro celkovou částku').
@@ -68,7 +68,7 @@ error('chyba č. 11 - chybná sazba DPH'):-
     has('učtované potraviny'),
     \+ (has('sazba DPH'), has('sazba DPH 12%')).
 
-error('chyba č. 12 - neplatné IČO dodavatele.'):-
+error('chyba č. 12 - neplatné IČO dodavatele'):-
     has('udaje o dodavateli'),
     has('IČO dodavatele'),
     \+ valid('IČO dodavatele').
@@ -80,37 +80,42 @@ error('chyba č. 13 - chybí údaje o sazbě DPH'):-
 
 receipt_type('zjednodušený daňový doklad (paragon)'):-
     receipt_type('danovy doklad'),
-    ask('Jedna se o: ', 'zjednoduseny danovy doklad').
+    ask_with_instructions('Jedna se o: ', 'zjednoduseny danovy doklad', 'zjednodušený daňový doklad (paragon)').
 
 receipt_type('danovy doklad'):-
-    ask('Jedna se o: ', 'danovy doklad (dodavatel je platce DPH a ma vycislenou DPH)').
+    ask('Jedna se o: ', 'danovy doklad (dodavatel je platce DPH, je uvedeno DIČ a ma vycislenou DPH)').
 
 
 total_sum(Condition):-
     has('celkova částka'),
     ask('Pro celkovou částku platí: ', Condition).
+
 has(Attribute):-
     ask('Obsahuje: ', Attribute).
+
 valid(Attribute):-
-    write('Je potřeba zkontrolovat správnost atributu: '), write(Attribute),
-    nl, nl,
-    instructions(Attribute), nl,
-    ask('Má spravně: ', Attribute).
+    ask_with_instructions('Je atribut spravný: ', Attribute, Attribute).
 
 
 % Interface
 
-% check if this questions was answered with `ano` (yes)
+
 ask(Question, Value):-
+    ask_with_instructions(Question, Value, 'no instructions').
+
+
+% check if this questions was answered with `ano` (yes)
+ask_with_instructions(Question, Value, _):-
     known(Question, Value, 'ano'), % check if such fact with `ano` answer exists in the KB.
     !. % if exists, stop backtracking and return success.
 
 % check if this questions was answered with `ne` (no)
-ask(Question, Value):-
+ask_with_instructions(Question, Value, _):-
     known(Question, Value, 'ne'), % check if such fact with `ne` answer exists in the KB.
     !, fail. % if exists, stop backtracking and return failure.
 
-ask(Question, Value):-
+ask_with_instructions(Question, Value, Instructions):-
+    instructions(Instructions),
     repeat,
     write(Question), write(Value),
     write('? (ano nebo ne): '),
@@ -128,9 +133,11 @@ ask(Question, Value):-
 
 instructions('IČO odběratele'):-
     nl,
+    writeln('Je potřeba zkontrolovat správnost atributu: IČO odběratele'),
+    nl,
     writeln('Jak ověřit platnost identifikačního čísla (IČO):'),
     nl,
-    writeln('1. - První až sedmou číslici (zleva) vynásobíme čísly 8, 7, 6, 5, 4, 3, 2 a součiny sečteme.'),
+    writeln('1.- První až sedmou číslici (zleva) vynásobíme čísly 8, 7, 6, 5, 4, 3, 2 a součiny sečteme.'),
     writeln('2 - Spočítáme zbytek po dělení jedenácti: zbytek = soucet % 11'),
     writeln('3 - Pro poslední osmou číslici c musí platit:'),
     writeln('\ta) - je-li zbytek 0 nebo 10, pak c = 1'),
@@ -143,13 +150,35 @@ instructions('IČO dodavatele'):-
 
 instructions('datum vyhotoveni'):-
     nl,
+    writeln('Je potřeba zkontrolovat správnost atributu: datum vyhotoveni'),
+    nl,
     writeln('Jak ověřit správnost datumu vyhotovení:'),
     nl,
     writeln('Správný datum vyhotovení není v budoucnosti nebo v hluboké minulosti. Pro zjednodušení uvažujeme pouze rok 2024.'),
     nl.
 
 instructions('celkova částka'):-
+    nl,
+    writeln('Je potřeba zkontrolovat správnost atributu: celkova částka'),
+    nl,
     writeln('Jak ověřít správnost celkové částky:'),
     nl,
     writeln('Celková částka musí být stejná jako součet částek u položek uvedených na dokladu.'),
     nl.
+
+instructions('zjednodušený daňový doklad (paragon)'):-
+    nl,
+    writeln('Je potřeba zkontrolovat jestli se jedná o zjednodušený daňový doklad (paragon)'),
+    nl,
+    writeln('Jak vypadá zjednodušený daňový doklad:'),
+    nl,
+    writeln('Daňový doklad lze vystavit (mimo vyjímky definované zákonem) jako zjednodušený daňový doklad, pokud celková částka za plnění na daňovém dokladu není vyšší než 10 000 Kč.'),
+    writeln('Zákon určuje, že na zjednodušeném daňovém dokladu nemusí být:'),
+    writeln('a) označení osoby, pro kterou se plnění uskutečňuje,'),
+    writeln('b) daňové identifikační číslo osoby, pro kterou se plnění uskutečňuje,'),
+    writeln('c) jednotkovou cenu bez daně a slevu, není-li obsažena v jednotkové ceně,'),
+    writeln('d) základ daně,'),
+    writeln('e) výši daně.'),
+    nl.
+
+instructions('no instructions').
