@@ -20,62 +20,66 @@ identifikace:-
 % Knowledge Base
 
 error('chyba č. 1 - neplatné IČO odběratele'):-
-   \+ receipt_type('zjednodušený daňový doklad (paragon)'),
+   receipt_type('faktura'),
    has('udaje o odběrateli'),
    has('IČO odběratele'),
-   \+ valid('IČO odběratele').
+   invalid('IČO odběratele').
 
 error('chyba č. 7 - jedná se o zjednodušený daňový doklad, ale celková částka je přes 10.000 Kč'):-
     receipt_type('zjednodušený daňový doklad (paragon)'),
     total_sum('> 10000').
 
 error('chyba č. 2 - chybí údaje o dodavateli (IČO,DIČ)'):-
-    \+ has('udaje o dodavateli');
-    \+ has('IČO dodavatele');
-    \+ (receipt_type('danovy doklad'), has('DIČ dodavatele')).
+    missing('udaje o dodavateli');
+    missing('IČO dodavatele');
+    missing('DIČ dodavatele').
 
 error('chyba č. 3 - chybí údaje of zápisu dodavatele do obchodního rejstříku'):-
     total_sum('> 10000'),
     has('udaje o dodavateli'),
-    \+ has('udaje o zapisu do obchodniho rejstriku').
+    missing('udaje o zapisu do obchodniho rejstriku').
 
 error('chyba č. 4 - chybí údaje of zápisu dodavatele do živnostenského rejstříku'):-
     total_sum('> 10000'),
     has('udaje o dodavateli'),
-    \+ has('udaje o zapisu do živnostenského rejstriku').
+    missing('udaje o zapisu do živnostenského rejstriku').
 
 error('chyba č. 5 - chybné datum vyhotovení účetního dokladu (30.2.2024)'):-
     has('datum vyhotoveni'),
-    \+ valid('datum vyhotoveni').
+    invalid('datum vyhotoveni').
 
 error('chyba č. 6 - chybějící datum vyhotovení účetního dokladu'):-
-    \+ has('datum vyhotoveni').
+    missing('datum vyhotoveni').
 
 error('chyba č. 8 - chybí celková částka'):-
-    \+ has('celkova částka').
+    missing('celkova částka').
 
 error('chyba č. 9 - chybná celková částka'):-
     has('celkova částka'),
-    \+ valid('celkova částka').
+    invalid('celkova částka').
 
 error('chyba č. 10 - chybí rekapitulace DPH'):-
     receipt_type('danovy doklad'),
-    \+ has('rekapitulace DPH'),
-    \+ has('sazba DPH pro celkovou částku').
+    missing('rekapitulace DPH'),
+    missing('sazba DPH pro celkovou částku').
 
 error('chyba č. 11 - chybná sazba DPH'):-
     has('učtované potraviny'),
-    \+ (has('sazba DPH'), has('sazba DPH 12%')).
+    has('sazba DPH'),
+    missing('sazba DPH 12%').
 
 error('chyba č. 12 - neplatné IČO dodavatele'):-
     has('udaje o dodavateli'),
     has('IČO dodavatele'),
-    \+ valid('IČO dodavatele').
+    invalid('IČO dodavatele').
 
 error('chyba č. 13 - chybí údaje o sazbě DPH'):-
     receipt_type('danovy doklad'),
-    \+ has('sazba DPH').
+    missing('sazba DPH').
 
+receipt_type('faktura'):-
+    receipt_type('danovy doklad'),
+    ask_with_instructions('Jedna se o: ', 'fakturu (nezjednodušený daňový doklad (paragon))', 'zjednodušený daňový doklad (paragon)').
 
 receipt_type('zjednodušený daňový doklad (paragon)'):-
     receipt_type('danovy doklad'),
@@ -93,8 +97,11 @@ total_sum(Condition):-
 has(Attribute):-
     ask('Obsahuje: ', Attribute).
 
-valid(Attribute):-
-    ask_with_instructions('Je atribut spravný: ', Attribute, Attribute).
+missing(Attribute):-
+    ask('Chybi: ', Attribute).
+
+invalid(Attribute):-
+    ask_with_instructions('Je atribut nespravný: ', Attribute, Attribute).
 
 
 % Interface
