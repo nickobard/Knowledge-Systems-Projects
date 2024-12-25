@@ -1,0 +1,35 @@
+    Trénovací set
+    ================
+    číslo účetního dokladu, daňový doklad, zjednodušený daňový doklad, chybný doklad, chyba
+    u0001,ano,ano,ne,
+    u0002,ano,ano,ne,
+    u0003,ano,ano,ano,13
+    u0004,ano,ano,ne,
+    u0005,ano,ano,ne,
+    u0006,ano,ano,ne,
+    u0007,ano,ano,ne,
+    u0008,ano,ano,ne,
+    u0009,ano,ano,ano, 6
+    u0010,ano,ano,ne,
+    u0011,ano,ano,ano,2
+    u0012,ano,ano,ne,
+    u0013,ano,ano,ne,
+    u0014,ano,ano,ano,10
+    u0015,ano,ano,ne,
+    u0016,ano,ano,ano,10
+    u0017,ano,ano,ne,
+    u0018,ano,ano,ne,
+    u0019,ano,ne,ano,1+10
+    u0020,ano,ne,ano,1
+    u0021,ano,ne,ano,1 alternativně: u0021,ano,ano,ne,
+    u0022,ano,ne,ano,3+7
+    u0023,ano,ne,ano,4+1
+    u0024,ano,ne,ano,8+1 alternativně: u0024,ano,ano,ano,8
+    u0025,ano,ne,ano,1 alternativně: u0025,ano,ano,ne,
+    u0026,ano,ne,ano,1 alternativně:  u0026,ano,ano,ne,
+    u0027,ano,ano,ano,12
+    u0028,ano,ano,ne,
+    u0029,ano,ano,ano,5
+    u0030,ano,ano,ano,30
+    u0031,ano,ano,ano,11
+    u0032,ano,ano,ne,
