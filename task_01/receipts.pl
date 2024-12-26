@@ -21,8 +21,11 @@ identification:-
 
 error('chyba č. 1 - neplatné IČO odběratele'):-
    receipt_type('faktura'),
+   writeln('continue with 1'),
    has('udaje o odběrateli'),
+   writeln('continue with 1'),
    has('IČO odběratele'),
+   writeln('continue with 1'),
    invalid('IČO odběratele').
 
 error('chyba č. 2 - chybí údaje o dodavateli (IČO,DIČ)'):-
@@ -85,9 +88,9 @@ receipt_type('faktura'):-
 
 receipt_type('faktura'):-
     receipt_type('danovy doklad'),
-    ask_with_instructions('Jedna se o: ',
+    ask_with_instructions('Jedna se o:',
                           'faktura',
-                          ' (nezjednodušený daňový doklad)',
+                          '(nezjednodušený daňový doklad)',
                           'receipt_type',
                           'paragon').
 
@@ -99,20 +102,20 @@ receipt_type('paragon'):-
 
 receipt_type('paragon'):-
     receipt_type('danovy doklad'),
-    ask_with_instructions('Jedna se o: ',
+    ask_with_instructions('Jedna se o:',
                           'paragon',
-                          ' (zjednodušený daňový doklad)',
+                          '(zjednodušený daňový doklad)',
                           'receipt_type' ,
                           'paragon').
 
 receipt_type('danovy doklad'):-
     has('udaje o dodavateli'),
-    ask('Jedna se o: ', 'danovy doklad', '(dodavatel je platce DPH, je uvedeno DIČ a ma vycislenou DPH)', 'receipt_type').
+    ask('Jedna se o:', 'danovy doklad', '(dodavatel je platce DPH, je uvedeno DIČ a ma vycislenou DPH)', 'receipt_type').
 
 
 total_sum(Condition):-
     has('celkova částka'),
-    ask('Pro celkovou částku platí: ', Condition).
+    ask('Pro celkovou částku platí: ', Condition, 'kc', 'total_sum').
 
 has(Attribute):-
     known('missing', Attribute, 'ano'), !, fail.
@@ -121,7 +124,7 @@ has(Attribute):-
     known('missing', Attribute, 'ne'), !.
 
 has(Attribute):-
-    ask('Obsahuje: ', Attribute, '','has').
+    ask('Obsahuje:', Attribute, '','has').
 
 missing(Attribute):-
     known('has', Attribute, 'ano'), !, fail.
@@ -130,10 +133,10 @@ missing(Attribute):-
     known('has', Attribute, 'ne'), !.
 
 missing(Attribute):-
-    ask('Chybi: ', Attribute, '', 'missing').
+    ask('Chybi:', Attribute, '', 'missing').
 
 invalid(Attribute):-
-    ask_with_instructions('Je atribut nespravný: ', Attribute, '', Attribute).
+    ask_with_instructions('Je atribut chybný: ', Attribute, '', Attribute, Attribute).
 
 
 % Interface
@@ -144,34 +147,28 @@ ask(Question, Value, Note, Predicate):-
 
 
 % check if this questions was answered with `ano` (yes)
-ask_with_instructions(Question, Value, Note, Predicate, _):-
+ask_with_instructions(_, Value, _, Predicate, _):-
     known(Predicate, Value, 'ano'), % check if such fact with `ano` answer exists in the KB.
     !. % if exists, stop backtracking and return success.
 
 % check if this questions was answered with `ne` (no)
-ask_with_instructions(Question, Value, Note, Predicate, _):-
+ask_with_instructions(_, Value, _, Predicate, _):-
     known(Predicate, Value, 'ne'), % check if such fact with `ne` answer exists in the KB.
     !, fail. % if exists, stop backtracking and return failure.
 
 ask_with_instructions(Question, Value, Note, Predicate, Instructions):-
     instructions(Instructions),
     repeat,
-    write(Question), write(Value), write(Note),
+    write(Question), write(' '), write(Value), write(' '), write(Note),
     write('? (ano nebo ne): '),
     read(Answer),
-    process_answer(Answer, Predicate, Value).
-
-process_answer('ano', Predicate, Value) :-
-    asserta(known(Predicate, Value, 'ano')),
-    !.
-
-process_answer('ne', Predicate, Value) :-
-    asserta(known(Predicate, Value, 'ne')),
-    !, fail.
-
-process_answer(_, Predicate, Value) :-
-    writeln('Nesprávný vstup, prosím odpovězte: ano nebo ne:'),
-    fail.
+    (
+        Answer = 'ano' ->
+            asserta(known(Predicate, Value, 'ano')), !;
+        Answer = 'ne' ->
+            asserta(known(Predicate, Value, 'ne')), !, fail;
+        writeln('Nesprávný vstup, prosím odpovězte ano nebo ne:'), fail
+    ).
 
 
 % Instructions for validation
@@ -195,9 +192,9 @@ instructions('IČO dodavatele'):-
 
 instructions('datum vyhotoveni'):-
     nl,
-    writeln('Je potřeba zkontrolovat správnost atributu: datum vyhotoveni'),
+    writeln('Je potřeba zkontrolovat chybnost atributu: datum vyhotoveni'),
     nl,
-    writeln('Jak ověřit správnost datumu vyhotovení:'),
+    writeln('Jak ověřit chybnost/správnost datumu vyhotovení:'),
     nl,
     writeln('Správný datum vyhotovení není v budoucnosti nebo v hluboké minulosti. Pro zjednodušení uvažujeme pouze rok 2024.'),
     nl.
@@ -213,7 +210,7 @@ instructions('celkova částka'):-
 
 instructions('paragon'):-
     nl,
-    writeln('Je potřeba zkontrolovat jestli se jedná o zjednodušený daňový doklad (paragon)'),
+    writeln('Je potřeba zkontrolovat jestli se jedná o paragon (zjednodušený daňový doklad) nebo o fakturu.'),
     nl,
     writeln('Jak vypadá zjednodušený daňový doklad:'),
     nl,
