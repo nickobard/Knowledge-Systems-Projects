@@ -19,13 +19,11 @@ identification:-
 
 % Knowledge Base
 
+
 error('chyba č. 1 - neplatné IČO odběratele'):-
    receipt_type('faktura'),
-   writeln('continue with 1'),
    has('udaje o odběrateli'),
-   writeln('continue with 1'),
    has('IČO odběratele'),
-   writeln('continue with 1'),
    invalid('IČO odběratele').
 
 error('chyba č. 2 - chybí údaje o dodavateli (IČO,DIČ)'):-
@@ -135,16 +133,20 @@ missing(Attribute):-
 missing(Attribute):-
     ask('Chybi:', Attribute, '', 'missing').
 
+invalid('IČO dodavatele'):-
+    ask_ico_and_check('dodavatele').
+
+invalid('IČO odběratele'):-
+    ask_ico_and_check('odberatele').
+
 invalid(Attribute):-
     ask_with_instructions('Je atribut chybný: ', Attribute, '', Attribute, Attribute).
 
 
 % Interface
 
-
 ask(Question, Value, Note, Predicate):-
     ask_with_instructions(Question, Value, Note, Predicate, 'no instructions').
-
 
 % check if this questions was answered with `ano` (yes)
 ask_with_instructions(_, Value, _, Predicate, _):-
@@ -170,6 +172,66 @@ ask_with_instructions(Question, Value, Note, Predicate, Instructions):-
         writeln('Nesprávný vstup, prosím odpovězte ano nebo ne:'), fail
     ).
 
+ask_ico_and_check(Which):-
+    known('invalid IČO', Which, 'ano'), !.
+
+ask_ico_and_check(Which):-
+    known('invalid IČO', Which, 'ne'), !, fail.
+
+ask_ico_and_check(Which):-
+    write('Napište IČO '), write(Which), write(':'), nl,
+    read_ico(ICO),
+    check_ico(ICO, Result),
+    process_result('invalid IČO', Which, Result).
+
+
+% Utility functions
+
+% check_ico(ICO, Result):-
+
+
+read_ico(ICO):-
+    repeat,
+    read(ICO_input),
+    convert_to_string(ICO_input, ICO).
+
+% Input is a number, convert to string
+convert_to_string(Input, String) :-
+    number(Input),
+    number_string(Input, String),
+    is_eight_digit_number(String).
+
+% Input is already a string
+convert_to_string(Input, String) :-
+    string(Input),
+    String = Input,
+    is_eight_digit_number(String).
+
+% Input is an atom, convert to string
+convert_to_string(Input, String) :-
+    atom(Input),
+    atom_string(Input, String),
+    is_eight_digit_number(String).
+
+is_eight_digit_number(Input):-
+    string_chars(Input, Chars),
+    length(Chars, 8),
+    maplist(is_digit_char, Chars), !.
+
+is_eight_digit_number(Input):-
+    write('Vstup \''), write(Input), write('\' neni osmi-cislicovy identifikator.'), nl, fail.
+
+% Helper predicate to check if a character is a digit
+is_digit_char(Char) :-
+    char_code(Char, Code),
+    Code >= 0'0,
+    Code =< 0'9.
+
+process_result(Predicate, Value, 'ano'):-
+    asserta(known(Predicate, Value, 'ano')), !.
+
+process_result(Predicate, Value, 'ne'):-
+    asserta(known(Predicate, Value, 'ne')), !, fail.
 
 % Instructions for validation
 
