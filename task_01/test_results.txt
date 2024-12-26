@@ -1,0 +1,9 @@
+test0001 ano 11
+test0002 ne null
+test0003 ano 10
+test0004 ano 6
+test0005 ano 3+4
+test0006 ano 5
+test0007 ano 11
+test0008 ano 5
+test0009 ano 12
