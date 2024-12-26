@@ -24,7 +24,7 @@ error('chyba č. 1 - neplatné IČO odběratele'):-
    receipt_type('faktura'),
    has('udaje o odběrateli'),
    has('IČO odběratele'),
-   invalid('IČO odběratele').
+   invalid_ico('odběratele').
 
 error('chyba č. 2 - chybí údaje o dodavateli (IČO,DIČ)'):-
     missing('udaje o dodavateli');
@@ -72,7 +72,7 @@ error('chyba č. 11 - chybná sazba DPH'):-
 error('chyba č. 12 - neplatné IČO dodavatele'):-
     has('udaje o dodavateli'),
     has('IČO dodavatele'),
-    invalid('IČO dodavatele').
+    invalid_ico('dodavatele').
 
 error('chyba č. 13 - chybí údaje o sazbě DPH'):-
     receipt_type('danovy doklad'),
@@ -133,10 +133,10 @@ missing(Attribute):-
 missing(Attribute):-
     ask('Chybi:', Attribute, '', 'missing').
 
-invalid('IČO dodavatele'):-
+invalid_ico('dodavatele'):-
     ask_ico_and_check('dodavatele').
 
-invalid('IČO odběratele'):-
+invalid_ico('odběratele'):-
     ask_ico_and_check('odberatele').
 
 invalid(Attribute):-
@@ -173,27 +173,68 @@ ask_with_instructions(Question, Value, Note, Predicate, Instructions):-
     ).
 
 ask_ico_and_check(Which):-
-    known('invalid IČO', Which, 'ano'), !.
+    known('IČO', Which, 'valid'), !.
 
 ask_ico_and_check(Which):-
-    known('invalid IČO', Which, 'ne'), !, fail.
+    known('IČO', Which, 'invalid'), !, fail.
 
 ask_ico_and_check(Which):-
     write('Napište IČO '), write(Which), write(':'), nl,
     read_ico(ICO),
     check_ico(ICO, Result),
-    process_result('invalid IČO', Which, Result).
+    process_ico_check_result('IČO', Which, Result).
 
+process_ico_check_result(Attribute, Which, 'valid') :-
+    asserta(known(Attribute, Which, 'valid')), !, fail.
+process_ico_check_result(Attribute, Which, 'invalid') :-
+    asserta(known(Attribute, Which, 'invalid')), !.
 
 % Utility functions
 
-% check_ico(ICO, Result):-
+check_ico(ICO, Result) :-
+    % Convert character codes to digits
+    string_codes(ICO, Codes),
+    maplist(code_digit, Codes, Digits),
+    length(Digits, 8),
+    Multipliers = [8,7,6,5,4,3,2],
+    nth0(7, Digits, C),
+    write('Control digit (C): '), write(C), nl,
+    append(Check_sum_digits, [C], Digits),
+    check_sum(Check_sum_digits, Multipliers, 0, Check_sum),
+    write('Check sum: '), write(Check_sum), nl,
+    Residual is Check_sum mod 11,
+    write('Residual: '), write(Residual), nl,
+    check_ico_control_digit(Residual, C),
+    write('ICO: '), write(ICO), write(' je spravne.'), nl,
+    Result = 'valid', !.
 
+check_ico(ICO, Result) :-
+    write('ICO: '), write(ICO), write(' je chybne.'), nl,
+    Result = 'invalid', !.
+
+check_ico_control_digit(0, 1) :- true.
+check_ico_control_digit(10, 1) :- true.
+check_ico_control_digit(1, 0) :- true.
+check_ico_control_digit(Residual, Check_digit) :-
+    Check_digit is 11 - Residual.
+
+% Sums up the first 7 digits times the corresponding multipliers.
+check_sum([], [], Accumulated_sum, Accumulated_sum).
+
+check_sum([D|Ds], [M|Ms], Accumulated_sum, Output_check_sum) :-
+    New_accumulated_sum is Accumulated_sum + D*M,
+    check_sum(Ds, Ms, New_accumulated_sum, Output_check_sum).
+
+% Helper: convert a char code to a digit (0..9). Fails if not a digit.
+code_digit(Code, Digit) :-
+    Code >= 0'0,
+    Code =< 0'9,
+    Digit is Code - 0'0.
 
 read_ico(ICO):-
     repeat,
     read(ICO_input),
-    convert_to_string(ICO_input, ICO).
+    convert_to_string(ICO_input, ICO), !.
 
 % Input is a number, convert to string
 convert_to_string(Input, String) :-
