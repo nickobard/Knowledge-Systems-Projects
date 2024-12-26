@@ -5,15 +5,15 @@
 
 % hlavni telo programu, tento kod je zodpovedny za vypsani textu uvadejiciho uzivatele do problematiky, volani dotazu a vypis reseni
 
-main :- identifikace.
+main :- identification.
 
-identifikace:-
+identification:-
   retractall(known(_,_,_)),
   writeln('Vítá vás jednoduchý expertní systém pro detekci chyb v paragonech'),
     writeln('Prosím odpovídejte na dotazy ano nebo ne. Každou odpověď je třeba zakončit tečkou.'), nl,
   error(Error_type), nl,
   write('Popsaná chyba je: '), write(Error_type), write('.'), nl.
-identifikace:-
+identification:-
   write('Nebyla detekovaná žádná chyba.') ,nl.
 
 
@@ -24,10 +24,6 @@ error('chyba č. 1 - neplatné IČO odběratele'):-
    has('udaje o odběrateli'),
    has('IČO odběratele'),
    invalid('IČO odběratele').
-
-error('chyba č. 7 - jedná se o zjednodušený daňový doklad, ale celková částka je přes 10.000 Kč'):-
-    receipt_type('zjednodušený daňový doklad (paragon)'),
-    total_sum('> 10000').
 
 error('chyba č. 2 - chybí údaje o dodavateli (IČO,DIČ)'):-
     missing('udaje o dodavateli');
@@ -50,6 +46,10 @@ error('chyba č. 5 - chybné datum vyhotovení účetního dokladu (30.2.2024)')
 
 error('chyba č. 6 - chybějící datum vyhotovení účetního dokladu'):-
     missing('datum vyhotoveni').
+
+error('chyba č. 7 - jedná se o zjednodušený daňový doklad, ale celková částka je přes 10.000 Kč'):-
+    receipt_type('zjednodušený daňový doklad (paragon)'),
+    total_sum('> 10000').
 
 error('chyba č. 8 - chybí celková částka'):-
     missing('celkova částka').
@@ -78,16 +78,36 @@ error('chyba č. 13 - chybí údaje o sazbě DPH'):-
     missing('sazba DPH').
 
 receipt_type('faktura'):-
-    receipt_type('danovy doklad'),
-    ask_with_instructions('Jedna se o: ', 'fakturu (nezjednodušený daňový doklad (paragon))', 'zjednodušený daňový doklad (paragon)').
+    known('receipt_type', 'paragon', 'ano' ), !, fail.
 
-receipt_type('zjednodušený daňový doklad (paragon)'):-
+receipt_type('faktura'):-
+    known('receipt_type', 'paragon', 'ne' ), !.
+
+receipt_type('faktura'):-
     receipt_type('danovy doklad'),
-    ask_with_instructions('Jedna se o: ', 'zjednodušený daňový doklad (paragon)', 'zjednodušený daňový doklad (paragon)').
+    ask_with_instructions('Jedna se o: ',
+                          'faktura',
+                          ' (nezjednodušený daňový doklad)',
+                          'receipt_type',
+                          'paragon').
+
+receipt_type('paragon'):-
+    known('receipt_type', 'faktura', 'ano' ), !, fail.
+
+receipt_type('paragon'):-
+    known('receipt_type', 'faktura', 'ne' ), !.
+
+receipt_type('paragon'):-
+    receipt_type('danovy doklad'),
+    ask_with_instructions('Jedna se o: ',
+                          'paragon',
+                          ' (zjednodušený daňový doklad)',
+                          'receipt_type' ,
+                          'paragon').
 
 receipt_type('danovy doklad'):-
     has('udaje o dodavateli'),
-    ask('Jedna se o: ', 'danovy doklad (dodavatel je platce DPH, je uvedeno DIČ a ma vycislenou DPH)').
+    ask('Jedna se o: ', 'danovy doklad', '(dodavatel je platce DPH, je uvedeno DIČ a ma vycislenou DPH)', 'receipt_type').
 
 
 total_sum(Condition):-
@@ -95,45 +115,63 @@ total_sum(Condition):-
     ask('Pro celkovou částku platí: ', Condition).
 
 has(Attribute):-
-    ask('Obsahuje: ', Attribute).
+    known('missing', Attribute, 'ano'), !, fail.
+
+has(Attribute):-
+    known('missing', Attribute, 'ne'), !.
+
+has(Attribute):-
+    ask('Obsahuje: ', Attribute, '','has').
 
 missing(Attribute):-
-    ask('Chybi: ', Attribute).
+    known('has', Attribute, 'ano'), !, fail.
+
+missing(Attribute):-
+    known('has', Attribute, 'ne'), !.
+
+missing(Attribute):-
+    ask('Chybi: ', Attribute, '', 'missing').
 
 invalid(Attribute):-
-    ask_with_instructions('Je atribut nespravný: ', Attribute, Attribute).
+    ask_with_instructions('Je atribut nespravný: ', Attribute, '', Attribute).
 
 
 % Interface
 
 
-ask(Question, Value):-
-    ask_with_instructions(Question, Value, 'no instructions').
+ask(Question, Value, Note, Predicate):-
+    ask_with_instructions(Question, Value, Note, Predicate, 'no instructions').
 
 
 % check if this questions was answered with `ano` (yes)
-ask_with_instructions(Question, Value, _):-
-    known(Question, Value, 'ano'), % check if such fact with `ano` answer exists in the KB.
+ask_with_instructions(Question, Value, Note, Predicate, _):-
+    known(Predicate, Value, 'ano'), % check if such fact with `ano` answer exists in the KB.
     !. % if exists, stop backtracking and return success.
 
 % check if this questions was answered with `ne` (no)
-ask_with_instructions(Question, Value, _):-
-    known(Question, Value, 'ne'), % check if such fact with `ne` answer exists in the KB.
+ask_with_instructions(Question, Value, Note, Predicate, _):-
+    known(Predicate, Value, 'ne'), % check if such fact with `ne` answer exists in the KB.
     !, fail. % if exists, stop backtracking and return failure.
 
-ask_with_instructions(Question, Value, Instructions):-
+ask_with_instructions(Question, Value, Note, Predicate, Instructions):-
     instructions(Instructions),
     repeat,
-    write(Question), write(Value),
+    write(Question), write(Value), write(Note),
     write('? (ano nebo ne): '),
     read(Answer),
-        (
-            Answer = 'ano' ->
-                asserta(known(Question, Value, 'ano')), !;
-            Answer = 'ne' ->
-                asserta(known(Question, Value, 'ne')), !, fail;
-            writeln('Nepsrávný vstup, prosím odpovězte: ano nebo ne:'), fail
-        ).
+    process_answer(Answer, Predicate, Value).
+
+process_answer('ano', Predicate, Value) :-
+    asserta(known(Predicate, Value, 'ano')),
+    !.
+
+process_answer('ne', Predicate, Value) :-
+    asserta(known(Predicate, Value, 'ne')),
+    !, fail.
+
+process_answer(_, Predicate, Value) :-
+    writeln('Nesprávný vstup, prosím odpovězte: ano nebo ne:'),
+    fail.
 
 
 % Instructions for validation
@@ -173,7 +211,7 @@ instructions('celkova částka'):-
     writeln('Celková částka musí být stejná jako součet částek u položek uvedených na dokladu.'),
     nl.
 
-instructions('zjednodušený daňový doklad (paragon)'):-
+instructions('paragon'):-
     nl,
     writeln('Je potřeba zkontrolovat jestli se jedná o zjednodušený daňový doklad (paragon)'),
     nl,
