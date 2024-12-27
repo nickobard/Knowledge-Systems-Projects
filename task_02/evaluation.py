@@ -11,8 +11,6 @@ import truleitem
 import trule
 import itertools
 
-from task_02.predikaty import facts
-
 
 def substitutions(atoms: list[str], rule: trule.TRule):
     variables = rule._listOfArguments
@@ -46,11 +44,20 @@ def solve(facts: list[tfact.TFact], rules: list[trule.TRule], atoms):
         new = []
         for rule in rules:
             thetas = substitutions(atoms, rule)
-            q = rule.evaluate(args=thetas, facts=facts)
-            if q is None:
-                continue
-            if all([unify(q, fact) is None for fact in facts + new]):
-                new.append(q)
+            for theta in thetas:
+                q = rule.evaluate(args=theta, facts=facts)
+                if q is None:
+                    continue
+                # if our consequent (with applied substitution theta) doesn't unify with any of the existing and new facts,
+                # then the list contains only TRUE values. The all() checks if all are TRUE, then the new fact q can be added
+                # to KB without problem that it may unify with some other fact.
+                if all([unify(q, fact) is None for fact in facts + new]):
+                    new.append(q)
+        # First iteration, where we checked every rule, if we can infer some new facts.
+        # If there are new facts inferred, then add them to know facts. Start over because with new facts
+        # we can go again through each rule from the beginning and infer new facts.
+        # Otherwise, if there are no new facts after whole iteration, it is pointless to continue, next iteration
+        # will not infer new facts. Break from the while loop.
         if len(new) != 0:
             facts = facts + new
         else:
