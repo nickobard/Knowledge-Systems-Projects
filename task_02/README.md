@@ -23,3 +23,4 @@ Implementation is simplification of this algorithm.
 ### Additional notes
 
 - explanation comments (docstrings) were added to the different parts of code, including code related to the task itself.
+- some test cases from the testing web are in the `test_rules` directory with solutions
