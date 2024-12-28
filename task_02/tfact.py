@@ -80,11 +80,21 @@ class TFact:
         return TFact([self._id, args])
 
     def compare(self, fact):
+        """
+        Compares this fact to another fact.
+
+        :return: True if this fact is same as the parameter fact.
+        """
+        # return false if name of this fact is not same as name of the given fact.
         if self._id != fact.getName():
             return False
+        # arguments of the other fact.
         args = fact.getArguments()
+        # if the other fact doesn't have same number of arguments, return False.
         if len(args) != len(self._arguments):
             return False
+        # start check each argument of fact, i.e. in father(abe, john) and father(abe, john) facts,
+        # arguments are atoms, they should be the same for both facts.
         j = 0
         for i in self._arguments:
             if i != args[j]:

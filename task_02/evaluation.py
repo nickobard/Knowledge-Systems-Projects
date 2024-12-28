@@ -14,21 +14,20 @@ import itertools
 
 def substitutions(atoms: list[str], rule: trule.TRule):
     variables = rule._listOfArguments
-    atoms_combinations = itertools.product(atoms, len(variables))
-    for combination in atoms_combinations:
-        theta = {x: y for x, y in zip(variables, combination)}
-        yield theta
+    atoms_combinations = itertools.product(atoms, repeat=len(variables))
+    return atoms_combinations
 
 
-def has_variable(x: tfact.TFact):
-    pass
-
-
-def unify(x, y, substitutions):
+def unify(x, y, substitution = dict()):
     """
      Unify algorithm, simplified for this task.
     """
-    pass
+    if substitution is None:
+        return None
+    elif x.compare(y):
+        return substitution
+    else:
+        return None
 
 
 def solve(facts: list[tfact.TFact], rules: list[trule.TRule], atoms):
@@ -59,7 +58,7 @@ def solve(facts: list[tfact.TFact], rules: list[trule.TRule], atoms):
         # Otherwise, if there are no new facts after whole iteration, it is pointless to continue, next iteration
         # will not infer new facts. Break from the while loop.
         if len(new) != 0:
-            facts = facts + new
+            facts.extend(new)
         else:
             break
 
