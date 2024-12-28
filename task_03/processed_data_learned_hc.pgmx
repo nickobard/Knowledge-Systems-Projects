@@ -1,0 +1,1048 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProbModelXML formatVersion="0.2.0">
+  <ProbNet type="BayesianNetwork">
+    <DecisionCriteria>
+      <Criterion name="---" unit="---" />
+    </DecisionCriteria>
+    <AdditionalProperties>
+      <Property name="hasElviraProperties" value="yes" />
+    </AdditionalProperties>
+    <Variables>
+      <Variable name="diagnosis" type="finiteStates" role="chance">
+        <Coordinates x="796" y="423" />
+        <States>
+          <State name="M" />
+          <State name="B" />
+        </States>
+      </Variable>
+      <Variable name="radius_mean" type="discretized" role="chance">
+        <Coordinates x="485" y="1010" />
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[6.981 , 14.024]" />
+          <State name="(14.024 , 21.067]" />
+          <State name="(21.067 , 28.11]" />
+        </States>
+        <Thresholds>
+          <Threshold value="6.981" belongsTo="right" />
+          <Threshold value="14.024" belongsTo="left" />
+          <Threshold value="21.067" belongsTo="left" />
+          <Threshold value="28.11" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="texture_mean" type="discretized" role="chance">
+        <Coordinates x="424" y="957" />
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[9.71 , 19.56666666666667]" />
+          <State name="(19.56666666666667 , 29.423333333333336]" />
+          <State name="(29.423333333333336 , 39.28]" />
+        </States>
+        <Thresholds>
+          <Threshold value="9.71" belongsTo="right" />
+          <Threshold value="19.56666666666667" belongsTo="left" />
+          <Threshold value="29.423333333333336" belongsTo="left" />
+          <Threshold value="39.28" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="perimeter_mean" type="discretized" role="chance">
+        <Coordinates x="161" y="571" />
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[43.79 , 92.02666666666667]" />
+          <State name="(92.02666666666667 , 140.26333333333335]" />
+          <State name="(140.26333333333335 , 188.5]" />
+        </States>
+        <Thresholds>
+          <Threshold value="43.79" belongsTo="right" />
+          <Threshold value="92.02666666666667" belongsTo="left" />
+          <Threshold value="140.26333333333335" belongsTo="left" />
+          <Threshold value="188.5" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="area_mean" type="discretized" role="chance">
+        <Coordinates x="175" y="462" />
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[143.5 , 929.3333333333334]" />
+          <State name="(929.3333333333334 , 1715.1666666666667]" />
+          <State name="(1715.1666666666667 , 2501.0]" />
+        </States>
+        <Thresholds>
+          <Threshold value="143.5" belongsTo="right" />
+          <Threshold value="929.3333333333334" belongsTo="left" />
+          <Threshold value="1715.1666666666667" belongsTo="left" />
+          <Threshold value="2501.0" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="smoothness_mean" type="discretized" role="chance">
+        <Coordinates x="342" y="886" />
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[0.05263 , 0.08955333333333333]" />
+          <State name="(0.08955333333333333 , 0.12647666666666665]" />
+          <State name="(0.12647666666666665 , 0.1634]" />
+        </States>
+        <Thresholds>
+          <Threshold value="0.05263" belongsTo="right" />
+          <Threshold value="0.08955333333333333" belongsTo="left" />
+          <Threshold value="0.12647666666666665" belongsTo="left" />
+          <Threshold value="0.1634" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="compactness_mean" type="discretized" role="chance">
+        <Coordinates x="181" y="623" />
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[0.01938 , 0.12805333333333332]" />
+          <State name="(0.12805333333333332 , 0.23672666666666667]" />
+          <State name="(0.23672666666666667 , 0.3454]" />
+        </States>
+        <Thresholds>
+          <Threshold value="0.01938" belongsTo="right" />
+          <Threshold value="0.12805333333333332" belongsTo="left" />
+          <Threshold value="0.23672666666666667" belongsTo="left" />
+          <Threshold value="0.3454" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="concavity_mean" type="discretized" role="chance">
+        <Coordinates x="267" y="826" />
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[0.0 , 0.14226666666666668]" />
+          <State name="(0.14226666666666668 , 0.28453333333333336]" />
+          <State name="(0.28453333333333336 , 0.42680000000000007]" />
+        </States>
+        <Thresholds>
+          <Threshold value="0.0" belongsTo="right" />
+          <Threshold value="0.14226666666666668" belongsTo="left" />
+          <Threshold value="0.28453333333333336" belongsTo="left" />
+          <Threshold value="0.4268" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="concave points_mean" type="discretized" role="chance">
+        <Coordinates x="199" y="693" />
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[0.0 , 0.06706666666666666]" />
+          <State name="(0.06706666666666666 , 0.13413333333333333]" />
+          <State name="(0.13413333333333333 , 0.2012]" />
+        </States>
+        <Thresholds>
+          <Threshold value="0.0" belongsTo="right" />
+          <Threshold value="0.06706666666666666" belongsTo="left" />
+          <Threshold value="0.13413333333333333" belongsTo="left" />
+          <Threshold value="0.2012" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="symmetry_mean" type="discretized" role="chance">
+        <Coordinates x="198" y="757" />
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[0.106 , 0.172]" />
+          <State name="(0.172 , 0.238]" />
+          <State name="(0.238 , 0.304]" />
+        </States>
+        <Thresholds>
+          <Threshold value="0.106" belongsTo="right" />
+          <Threshold value="0.172" belongsTo="left" />
+          <Threshold value="0.238" belongsTo="left" />
+          <Threshold value="0.304" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="fractal_dimension_mean" type="discretized" role="chance">
+        <Coordinates x="179" y="528" />
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[0.04996 , 0.06578666666666666]" />
+          <State name="(0.06578666666666666 , 0.08161333333333333]" />
+          <State name="(0.08161333333333333 , 0.09744]" />
+        </States>
+        <Thresholds>
+          <Threshold value="0.04996" belongsTo="right" />
+          <Threshold value="0.06578666666666666" belongsTo="left" />
+          <Threshold value="0.08161333333333333" belongsTo="left" />
+          <Threshold value="0.09744" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="radius_se" type="discretized" role="chance">
+        <Coordinates x="397" y="164" />
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[0.1115 , 1.032]" />
+          <State name="(1.032 , 1.9525000000000001]" />
+          <State name="(1.9525000000000001 , 2.873]" />
+        </States>
+        <Thresholds>
+          <Threshold value="0.1115" belongsTo="right" />
+          <Threshold value="1.032" belongsTo="left" />
+          <Threshold value="1.9525000000000001" belongsTo="left" />
+          <Threshold value="2.873" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="texture_se" type="discretized" role="chance">
+        <Coordinates x="475" y="128" />
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[0.3602 , 1.8684666666666667]" />
+          <State name="(1.8684666666666667 , 3.376733333333333]" />
+          <State name="(3.376733333333333 , 4.885]" />
+        </States>
+        <Thresholds>
+          <Threshold value="0.3602" belongsTo="right" />
+          <Threshold value="1.8684666666666667" belongsTo="left" />
+          <Threshold value="3.376733333333333" belongsTo="left" />
+          <Threshold value="4.885" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="perimeter_se" type="discretized" role="chance">
+        <Coordinates x="1271" y="181" />
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[0.757 , 7.831333333333332]" />
+          <State name="(7.831333333333332 , 14.905666666666665]" />
+          <State name="(14.905666666666665 , 21.98]" />
+        </States>
+        <Thresholds>
+          <Threshold value="0.757" belongsTo="right" />
+          <Threshold value="7.831" belongsTo="left" />
+          <Threshold value="14.906" belongsTo="left" />
+          <Threshold value="21.98" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="area_se" type="discretized" role="chance">
+        <Coordinates x="352" y="223" />
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[6.802 , 185.268]" />
+          <State name="(185.268 , 363.73400000000004]" />
+          <State name="(363.73400000000004 , 542.2]" />
+        </States>
+        <Thresholds>
+          <Threshold value="6.802" belongsTo="right" />
+          <Threshold value="185.268" belongsTo="left" />
+          <Threshold value="363.73400000000004" belongsTo="left" />
+          <Threshold value="542.2" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="smoothness_se" type="discretized" role="chance">
+        <Coordinates x="584" y="80" />
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[0.001713 , 0.011518666666666667]" />
+          <State name="(0.011518666666666667 , 0.021324333333333334]" />
+          <State name="(0.021324333333333334 , 0.03113]" />
+        </States>
+        <Thresholds>
+          <Threshold value="0.001713" belongsTo="right" />
+          <Threshold value="0.011518666666666667" belongsTo="left" />
+          <Threshold value="0.021324333333333334" belongsTo="left" />
+          <Threshold value="0.03113" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="compactness_se" type="discretized" role="chance">
+        <Coordinates x="1220" y="143" />
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[0.002252 , 0.04663466666666666]" />
+          <State name="(0.04663466666666666 , 0.09101733333333333]" />
+          <State name="(0.09101733333333333 , 0.1354]" />
+        </States>
+        <Thresholds>
+          <Threshold value="0.002252" belongsTo="right" />
+          <Threshold value="0.04663466666666666" belongsTo="left" />
+          <Threshold value="0.09101733333333333" belongsTo="left" />
+          <Threshold value="0.1354" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="concavity_se" type="discretized" role="chance">
+        <Coordinates x="898" y="47" />
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[0.0 , 0.132]" />
+          <State name="(0.132 , 0.264]" />
+          <State name="(0.264 , 0.396]" />
+        </States>
+        <Thresholds>
+          <Threshold value="0.0" belongsTo="right" />
+          <Threshold value="0.132" belongsTo="left" />
+          <Threshold value="0.264" belongsTo="left" />
+          <Threshold value="0.396" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="concave points_se" type="discretized" role="chance">
+        <Coordinates x="1336" y="233" />
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[0.0 , 0.017596666666666667]" />
+          <State name="(0.017596666666666667 , 0.03519333333333333]" />
+          <State name="(0.03519333333333333 , 0.052790000000000004]" />
+        </States>
+        <Thresholds>
+          <Threshold value="0.0" belongsTo="right" />
+          <Threshold value="0.017596666666666667" belongsTo="left" />
+          <Threshold value="0.03519333333333333" belongsTo="left" />
+          <Threshold value="0.05279" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="symmetry_se" type="discretized" role="chance">
+        <Coordinates x="740" y="52" />
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[0.007882 , 0.03157133333333334]" />
+          <State name="(0.03157133333333334 , 0.05526066666666667]" />
+          <State name="(0.05526066666666667 , 0.07895]" />
+        </States>
+        <Thresholds>
+          <Threshold value="0.007882" belongsTo="right" />
+          <Threshold value="0.03157133333333334" belongsTo="left" />
+          <Threshold value="0.05526066666666667" belongsTo="left" />
+          <Threshold value="0.07895" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="fractal_dimension_se" type="discretized" role="chance">
+        <Coordinates x="1072" y="92" />
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[8.948E-4 , 0.010543199999999999]" />
+          <State name="(0.010543199999999999 , 0.0201916]" />
+          <State name="(0.0201916 , 0.02984]" />
+        </States>
+        <Thresholds>
+          <Threshold value="8.948E-4" belongsTo="right" />
+          <Threshold value="0.010543199999999999" belongsTo="left" />
+          <Threshold value="0.0201916" belongsTo="left" />
+          <Threshold value="0.02984" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="radius_worst" type="discretized" role="chance">
+        <Coordinates x="940" y="1088" />
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[7.93 , 17.299999999999997]" />
+          <State name="(17.299999999999997 , 26.669999999999998]" />
+          <State name="(26.669999999999998 , 36.04]" />
+        </States>
+        <Thresholds>
+          <Threshold value="7.93" belongsTo="right" />
+          <Threshold value="17.299999999999997" belongsTo="left" />
+          <Threshold value="26.669999999999998" belongsTo="left" />
+          <Threshold value="36.04" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="texture_worst" type="discretized" role="chance">
+        <Coordinates x="1433" y="713" />
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[12.02 , 24.526666666666664]" />
+          <State name="(24.526666666666664 , 37.03333333333333]" />
+          <State name="(37.03333333333333 , 49.53999999999999]" />
+        </States>
+        <Thresholds>
+          <Threshold value="12.02" belongsTo="right" />
+          <Threshold value="24.526666666666664" belongsTo="left" />
+          <Threshold value="37.03333333333333" belongsTo="left" />
+          <Threshold value="49.54" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="perimeter_worst" type="discretized" role="chance">
+        <Coordinates x="1382" y="511" />
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[50.41 , 117.33999999999999]" />
+          <State name="(117.33999999999999 , 184.26999999999998]" />
+          <State name="(184.26999999999998 , 251.19999999999996]" />
+        </States>
+        <Thresholds>
+          <Threshold value="50.41" belongsTo="right" />
+          <Threshold value="117.33999999999999" belongsTo="left" />
+          <Threshold value="184.26999999999998" belongsTo="left" />
+          <Threshold value="251.2" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="area_worst" type="discretized" role="chance">
+        <Coordinates x="1423" y="574" />
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[185.2 , 1541.4666666666667]" />
+          <State name="(1541.4666666666667 , 2897.733333333333]" />
+          <State name="(2897.733333333333 , 4254.0]" />
+        </States>
+        <Thresholds>
+          <Threshold value="185.2" belongsTo="right" />
+          <Threshold value="1541.4666666666667" belongsTo="left" />
+          <Threshold value="2897.733333333333" belongsTo="left" />
+          <Threshold value="4254.0" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="smoothness_worst" type="discretized" role="chance">
+        <Coordinates x="1376" y="781" />
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[0.07117 , 0.12164666666666667]" />
+          <State name="(0.12164666666666667 , 0.17212333333333335]" />
+          <State name="(0.17212333333333335 , 0.22260000000000002]" />
+        </States>
+        <Thresholds>
+          <Threshold value="0.07117" belongsTo="right" />
+          <Threshold value="0.12164666666666667" belongsTo="left" />
+          <Threshold value="0.17212333333333335" belongsTo="left" />
+          <Threshold value="0.2226" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="compactness_worst" type="discretized" role="chance">
+        <Coordinates x="1185" y="983" />
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[0.02729 , 0.37085999999999997]" />
+          <State name="(0.37085999999999997 , 0.71443]" />
+          <State name="(0.71443 , 1.058]" />
+        </States>
+        <Thresholds>
+          <Threshold value="0.02729" belongsTo="right" />
+          <Threshold value="0.37085999999999997" belongsTo="left" />
+          <Threshold value="0.71443" belongsTo="left" />
+          <Threshold value="1.058" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="concavity_worst" type="discretized" role="chance">
+        <Coordinates x="1359" y="861" />
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[0.0 , 0.41733333333333333]" />
+          <State name="(0.41733333333333333 , 0.8346666666666667]" />
+          <State name="(0.8346666666666667 , 1.252]" />
+        </States>
+        <Thresholds>
+          <Threshold value="0.0" belongsTo="right" />
+          <Threshold value="0.41733333333333333" belongsTo="left" />
+          <Threshold value="0.8346666666666667" belongsTo="left" />
+          <Threshold value="1.252" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="concave points_worst" type="discretized" role="chance">
+        <Coordinates x="1092" y="1040" />
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[0.0 , 0.09699999999999999]" />
+          <State name="(0.09699999999999999 , 0.19399999999999998]" />
+          <State name="(0.19399999999999998 , 0.291]" />
+        </States>
+        <Thresholds>
+          <Threshold value="0.0" belongsTo="right" />
+          <Threshold value="0.09699999999999999" belongsTo="left" />
+          <Threshold value="0.19399999999999998" belongsTo="left" />
+          <Threshold value="0.291" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="symmetry_worst" type="discretized" role="chance">
+        <Coordinates x="1308" y="921" />
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[0.1565 , 0.3256]" />
+          <State name="(0.3256 , 0.49470000000000003]" />
+          <State name="(0.49470000000000003 , 0.6638]" />
+        </States>
+        <Thresholds>
+          <Threshold value="0.1565" belongsTo="right" />
+          <Threshold value="0.3256" belongsTo="left" />
+          <Threshold value="0.49470000000000003" belongsTo="left" />
+          <Threshold value="0.6638" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="fractal_dimension_worst" type="discretized" role="chance">
+        <Coordinates x="1445" y="639" />
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[0.05504 , 0.10586]" />
+          <State name="(0.10586 , 0.15667999999999999]" />
+          <State name="(0.15667999999999999 , 0.2075]" />
+        </States>
+        <Thresholds>
+          <Threshold value="0.05504" belongsTo="right" />
+          <Threshold value="0.10586" belongsTo="left" />
+          <Threshold value="0.15667999999999999" belongsTo="left" />
+          <Threshold value="0.2075" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+    </Variables>
+    <Links>
+      <Link directed="true">
+        <Variable name="diagnosis" />
+        <Variable name="texture_mean" />
+      </Link>
+      <Link directed="true">
+        <Variable name="diagnosis" />
+        <Variable name="perimeter_mean" />
+      </Link>
+      <Link directed="true">
+        <Variable name="diagnosis" />
+        <Variable name="concave points_mean" />
+      </Link>
+      <Link directed="true">
+        <Variable name="diagnosis" />
+        <Variable name="concave points_se" />
+      </Link>
+      <Link directed="true">
+        <Variable name="diagnosis" />
+        <Variable name="texture_worst" />
+      </Link>
+      <Link directed="true">
+        <Variable name="diagnosis" />
+        <Variable name="concave points_worst" />
+      </Link>
+      <Link directed="true">
+        <Variable name="texture_mean" />
+        <Variable name="texture_worst" />
+      </Link>
+      <Link directed="true">
+        <Variable name="perimeter_mean" />
+        <Variable name="radius_mean" />
+      </Link>
+      <Link directed="true">
+        <Variable name="perimeter_mean" />
+        <Variable name="concave points_worst" />
+      </Link>
+      <Link directed="true">
+        <Variable name="area_mean" />
+        <Variable name="concave points_mean" />
+      </Link>
+      <Link directed="true">
+        <Variable name="area_mean" />
+        <Variable name="perimeter_worst" />
+      </Link>
+      <Link directed="true">
+        <Variable name="smoothness_mean" />
+        <Variable name="symmetry_mean" />
+      </Link>
+      <Link directed="true">
+        <Variable name="smoothness_mean" />
+        <Variable name="smoothness_worst" />
+      </Link>
+      <Link directed="true">
+        <Variable name="compactness_mean" />
+        <Variable name="concavity_mean" />
+      </Link>
+      <Link directed="true">
+        <Variable name="compactness_mean" />
+        <Variable name="symmetry_mean" />
+      </Link>
+      <Link directed="true">
+        <Variable name="compactness_mean" />
+        <Variable name="compactness_se" />
+      </Link>
+      <Link directed="true">
+        <Variable name="concavity_mean" />
+        <Variable name="smoothness_mean" />
+      </Link>
+      <Link directed="true">
+        <Variable name="concavity_mean" />
+        <Variable name="concave points_mean" />
+      </Link>
+      <Link directed="true">
+        <Variable name="concavity_mean" />
+        <Variable name="concavity_worst" />
+      </Link>
+      <Link directed="true">
+        <Variable name="symmetry_mean" />
+        <Variable name="symmetry_worst" />
+      </Link>
+      <Link directed="true">
+        <Variable name="fractal_dimension_mean" />
+        <Variable name="smoothness_mean" />
+      </Link>
+      <Link directed="true">
+        <Variable name="radius_se" />
+        <Variable name="area_se" />
+      </Link>
+      <Link directed="true">
+        <Variable name="radius_se" />
+        <Variable name="perimeter_worst" />
+      </Link>
+      <Link directed="true">
+        <Variable name="radius_se" />
+        <Variable name="area_worst" />
+      </Link>
+      <Link directed="true">
+        <Variable name="texture_se" />
+        <Variable name="texture_mean" />
+      </Link>
+      <Link directed="true">
+        <Variable name="texture_se" />
+        <Variable name="smoothness_se" />
+      </Link>
+      <Link directed="true">
+        <Variable name="perimeter_se" />
+        <Variable name="compactness_mean" />
+      </Link>
+      <Link directed="true">
+        <Variable name="perimeter_se" />
+        <Variable name="radius_se" />
+      </Link>
+      <Link directed="true">
+        <Variable name="perimeter_se" />
+        <Variable name="concave points_se" />
+      </Link>
+      <Link directed="true">
+        <Variable name="perimeter_se" />
+        <Variable name="area_worst" />
+      </Link>
+      <Link directed="true">
+        <Variable name="area_se" />
+        <Variable name="texture_mean" />
+      </Link>
+      <Link directed="true">
+        <Variable name="area_se" />
+        <Variable name="perimeter_mean" />
+      </Link>
+      <Link directed="true">
+        <Variable name="area_se" />
+        <Variable name="area_mean" />
+      </Link>
+      <Link directed="true">
+        <Variable name="area_se" />
+        <Variable name="concavity_mean" />
+      </Link>
+      <Link directed="true">
+        <Variable name="area_se" />
+        <Variable name="smoothness_se" />
+      </Link>
+      <Link directed="true">
+        <Variable name="area_se" />
+        <Variable name="area_worst" />
+      </Link>
+      <Link directed="true">
+        <Variable name="area_se" />
+        <Variable name="concave points_worst" />
+      </Link>
+      <Link directed="true">
+        <Variable name="smoothness_se" />
+        <Variable name="fractal_dimension_mean" />
+      </Link>
+      <Link directed="true">
+        <Variable name="compactness_se" />
+        <Variable name="fractal_dimension_mean" />
+      </Link>
+      <Link directed="true">
+        <Variable name="compactness_se" />
+        <Variable name="concave points_se" />
+      </Link>
+      <Link directed="true">
+        <Variable name="compactness_se" />
+        <Variable name="symmetry_se" />
+      </Link>
+      <Link directed="true">
+        <Variable name="compactness_se" />
+        <Variable name="fractal_dimension_se" />
+      </Link>
+      <Link directed="true">
+        <Variable name="concavity_se" />
+        <Variable name="concavity_mean" />
+      </Link>
+      <Link directed="true">
+        <Variable name="concavity_se" />
+        <Variable name="concave points_mean" />
+      </Link>
+      <Link directed="true">
+        <Variable name="concavity_se" />
+        <Variable name="fractal_dimension_mean" />
+      </Link>
+      <Link directed="true">
+        <Variable name="concavity_se" />
+        <Variable name="concave points_se" />
+      </Link>
+      <Link directed="true">
+        <Variable name="concavity_se" />
+        <Variable name="texture_worst" />
+      </Link>
+      <Link directed="true">
+        <Variable name="concavity_se" />
+        <Variable name="smoothness_worst" />
+      </Link>
+      <Link directed="true">
+        <Variable name="symmetry_se" />
+        <Variable name="texture_se" />
+      </Link>
+      <Link directed="true">
+        <Variable name="fractal_dimension_se" />
+        <Variable name="smoothness_se" />
+      </Link>
+      <Link directed="true">
+        <Variable name="fractal_dimension_se" />
+        <Variable name="concavity_se" />
+      </Link>
+      <Link directed="true">
+        <Variable name="fractal_dimension_se" />
+        <Variable name="smoothness_worst" />
+      </Link>
+      <Link directed="true">
+        <Variable name="fractal_dimension_se" />
+        <Variable name="fractal_dimension_worst" />
+      </Link>
+      <Link directed="true">
+        <Variable name="radius_worst" />
+        <Variable name="diagnosis" />
+      </Link>
+      <Link directed="true">
+        <Variable name="radius_worst" />
+        <Variable name="perimeter_mean" />
+      </Link>
+      <Link directed="true">
+        <Variable name="perimeter_worst" />
+        <Variable name="diagnosis" />
+      </Link>
+      <Link directed="true">
+        <Variable name="perimeter_worst" />
+        <Variable name="concavity_mean" />
+      </Link>
+      <Link directed="true">
+        <Variable name="perimeter_worst" />
+        <Variable name="radius_worst" />
+      </Link>
+      <Link directed="true">
+        <Variable name="perimeter_worst" />
+        <Variable name="concave points_worst" />
+      </Link>
+      <Link directed="true">
+        <Variable name="area_worst" />
+        <Variable name="area_mean" />
+      </Link>
+      <Link directed="true">
+        <Variable name="compactness_worst" />
+        <Variable name="compactness_mean" />
+      </Link>
+      <Link directed="true">
+        <Variable name="compactness_worst" />
+        <Variable name="concavity_worst" />
+      </Link>
+      <Link directed="true">
+        <Variable name="compactness_worst" />
+        <Variable name="symmetry_worst" />
+      </Link>
+      <Link directed="true">
+        <Variable name="compactness_worst" />
+        <Variable name="fractal_dimension_worst" />
+      </Link>
+      <Link directed="true">
+        <Variable name="concave points_worst" />
+        <Variable name="compactness_mean" />
+      </Link>
+      <Link directed="true">
+        <Variable name="concave points_worst" />
+        <Variable name="compactness_worst" />
+      </Link>
+      <Link directed="true">
+        <Variable name="fractal_dimension_worst" />
+        <Variable name="fractal_dimension_mean" />
+      </Link>
+      <Link directed="true">
+        <Variable name="fractal_dimension_worst" />
+        <Variable name="smoothness_worst" />
+      </Link>
+    </Links>
+    <Potentials>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="diagnosis" />
+          <Variable name="radius_worst" />
+          <Variable name="perimeter_worst" />
+        </Variables>
+        <Values>0.10128205128205128 0.8987179487179487 0.6071428571428571 0.39285714285714285 0.5 0.5 0.9 0.1 0.9823943661971831 0.017605633802816902 0.9 0.1 0.5 0.5 0.8333333333333334 0.16666666666666666 0.9705882352941176 0.029411764705882353</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="radius_mean" />
+          <Variable name="perimeter_mean" />
+        </Variables>
+        <Values>0.97677793904209 0.02177068214804064 0.001451378809869376 0.012165450121654502 0.975669099756691 0.012165450121654502 0.02127659574468085 0.10638297872340426 0.8723404255319149</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="texture_mean" />
+          <Variable name="diagnosis" />
+          <Variable name="texture_se" />
+          <Variable name="area_se" />
+        </Variables>
+        <Values>0.2898172323759791 0.6814621409921671 0.028720626631853787 0.7696 0.2224 0.008 0.08571428571428572 0.8857142857142857 0.02857142857142857 0.5056179775280899 0.4606741573033708 0.033707865168539325 0.2 0.6 0.2 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.42857142857142855 0.14285714285714285 0.42857142857142855 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.2 0.6 0.2 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.42857142857142855 0.42857142857142855 0.14285714285714285 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="perimeter_mean" />
+          <Variable name="diagnosis" />
+          <Variable name="area_se" />
+          <Variable name="radius_worst" />
+        </Variables>
+        <Values>0.6179775280898876 0.3707865168539326 0.011235955056179775 0.8918918918918919 0.10668563300142248 0.001422475106685633 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.023411371237458192 0.9331103678929766 0.043478260869565216 0.058823529411764705 0.8823529411764706 0.058823529411764705 0.2 0.2 0.6 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.02857142857142857 0.2571428571428571 0.7142857142857143 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.14285714285714285 0.42857142857142855 0.42857142857142855 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.14285714285714285 0.14285714285714285 0.7142857142857143 0.3333333333333333 0.3333333333333333 0.3333333333333333</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="area_mean" />
+          <Variable name="area_se" />
+          <Variable name="area_worst" />
+        </Variables>
+        <Values>0.9328585961342828 0.06612410986775177 0.001017293997965412 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.03496503496503497 0.9300699300699301 0.03496503496503497 0.2 0.2 0.6 0.2 0.2 0.6 0.09090909090909091 0.2727272727272727 0.6363636363636364 0.14285714285714285 0.7142857142857143 0.14285714285714285 0.2 0.2 0.6</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="smoothness_mean" />
+          <Variable name="concavity_mean" />
+          <Variable name="fractal_dimension_mean" />
+        </Variables>
+        <Values>0.5064194008559201 0.4921540656205421 0.0014265335235378032 0.007751937984496124 0.9844961240310077 0.007751937984496124 0.07692307692307693 0.8461538461538461 0.07692307692307693 0.1712707182320442 0.8011049723756906 0.027624309392265192 0.011494252873563218 0.8620689655172413 0.12643678160919541 0.1111111111111111 0.6296296296296297 0.25925925925925924 0.09090909090909091 0.6363636363636364 0.2727272727272727 0.09090909090909091 0.6363636363636364 0.2727272727272727 0.2 0.6 0.2</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="compactness_mean" />
+          <Variable name="perimeter_se" />
+          <Variable name="compactness_worst" />
+          <Variable name="concave points_worst" />
+        </Variables>
+        <Values>0.9779005524861878 0.020257826887661142 0.001841620626151013 0.6 0.2 0.2 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.42857142857142855 0.42857142857142855 0.14285714285714285 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.7507598784194529 0.24620060790273557 0.00303951367781155 0.2 0.6 0.2 0.2 0.6 0.2 0.2413793103448276 0.7471264367816092 0.011494252873563218 0.14285714285714285 0.42857142857142855 0.42857142857142855 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.14285714285714285 0.42857142857142855 0.42857142857142855 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.5121951219512195 0.4634146341463415 0.024390243902439025 0.6 0.2 0.2 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.04950495049504951 0.900990099009901 0.04950495049504951 0.058823529411764705 0.29411764705882354 0.6470588235294118 0.2 0.6 0.2 0.058823529411764705 0.4117647058823529 0.5294117647058824 0.2 0.6 0.2 0.3333333333333333 0.3333333333333333 0.3333333333333333</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="concavity_mean" />
+          <Variable name="compactness_mean" />
+          <Variable name="area_se" />
+          <Variable name="concavity_se" />
+          <Variable name="perimeter_worst" />
+        </Variables>
+        <Values>0.9942938659058488 0.0042796005706134095 0.0014265335235378032 0.7052631578947368 0.28421052631578947 0.010526315789473684 0.1111111111111111 0.7777777777777778 0.1111111111111111 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.14285714285714285 0.42857142857142855 0.42857142857142855 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.14285714285714285 0.14285714285714285 0.7142857142857143 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.7647058823529411 0.226890756302521 0.008403361344537815 0.15789473684210525 0.8011695906432749 0.04093567251461988 0.07692307692307693 0.38461538461538464 0.5384615384615384 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.2 0.2 0.6 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.2 0.6 0.2 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.5555555555555556 0.1111111111111111 0.058823529411764705 0.6470588235294118 0.29411764705882354 0.09090909090909091 0.09090909090909091 0.8181818181818182 0.7142857142857143 0.14285714285714285 0.14285714285714285 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.14285714285714285 0.14285714285714285 0.7142857142857143 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="concave points_mean" />
+          <Variable name="diagnosis" />
+          <Variable name="area_mean" />
+          <Variable name="concavity_mean" />
+          <Variable name="concavity_se" />
+        </Variables>
+        <Values>0.8151260504201681 0.17647058823529413 0.008403361344537815 0.9828326180257511 0.015736766809728183 0.001430615164520744 0.3424657534246575 0.6438356164383562 0.0136986301369863 0.6 0.2 0.2 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.07692307692307693 0.8901098901098901 0.03296703296703297 0.8181818181818182 0.09090909090909091 0.09090909090909091 0.008547008547008548 0.8803418803418803 0.1111111111111111 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.14285714285714285 0.14285714285714285 0.7142857142857143 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.14285714285714285 0.42857142857142855 0.42857142857142855 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.058823529411764705 0.17647058823529413 0.7647058823529411 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.06666666666666667 0.06666666666666667 0.8666666666666667 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.6 0.2 0.2 0.6 0.2 0.2 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.2 0.6 0.2 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.42857142857142855 0.42857142857142855 0.14285714285714285 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="symmetry_mean" />
+          <Variable name="smoothness_mean" />
+          <Variable name="compactness_mean" />
+        </Variables>
+        <Values>0.6517150395778364 0.3403693931398417 0.0079155672823219 0.41202672605790647 0.5679287305122495 0.0200445434298441 0.14285714285714285 0.42857142857142855 0.42857142857142855 0.6923076923076923 0.23076923076923078 0.07692307692307693 0.07865168539325842 0.8801498127340824 0.04119850187265917 0.06666666666666667 0.7333333333333333 0.2 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.047619047619047616 0.3333333333333333 0.6190476190476191 0.09090909090909091 0.09090909090909091 0.8181818181818182</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="fractal_dimension_mean" />
+          <Variable name="smoothness_se" />
+          <Variable name="compactness_se" />
+          <Variable name="concavity_se" />
+          <Variable name="fractal_dimension_worst" />
+        </Variables>
+        <Values>0.8617614269788183 0.13712374581939799 0.0011148272017837235 0.40350877192982454 0.5789473684210527 0.017543859649122806 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3684210526315789 0.5789473684210527 0.05263157894736842 0.2727272727272727 0.6363636363636364 0.09090909090909091 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.42857142857142855 0.42857142857142855 0.14285714285714285 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.2 0.6 0.2 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.6 0.2 0.2 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.13432835820895522 0.8208955223880597 0.04477611940298507 0.2 0.6 0.2 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.21212121212121213 0.7575757575757576 0.030303030303030304 0.1111111111111111 0.5555555555555556 0.3333333333333333 0.2 0.2 0.6 0.2 0.6 0.2 0.2 0.2 0.6 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.14285714285714285 0.42857142857142855 0.42857142857142855 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.2 0.6 0.2 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.2 0.2 0.6 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.14285714285714285 0.14285714285714285 0.7142857142857143 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="radius_se" />
+          <Variable name="perimeter_se" />
+        </Variables>
+        <Values>0.9837983798379838 0.0153015301530153 9.000900090009E-4 0.3103448275862069 0.6551724137931034 0.034482758620689655 0.14285714285714285 0.14285714285714285 0.7142857142857143</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="texture_se" />
+          <Variable name="symmetry_se" />
+        </Variables>
+        <Values>0.9180171591992373 0.07721639656816015 0.004766444232602479 0.5058823529411764 0.43529411764705883 0.058823529411764705 0.5384615384615384 0.38461538461538464 0.07692307692307693</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="perimeter_se" />
+        </Variables>
+        <Values>0.971954425942156 0.02366345311130587 0.0043821209465381246</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="area_se" />
+          <Variable name="radius_se" />
+        </Variables>
+        <Values>0.9981867633726201 9.066183136899365E-4 9.066183136899365E-4 0.7837837837837838 0.1891891891891892 0.02702702702702703 0.14285714285714285 0.14285714285714285 0.7142857142857143</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="smoothness_se" />
+          <Variable name="texture_se" />
+          <Variable name="area_se" />
+          <Variable name="fractal_dimension_se" />
+        </Variables>
+        <Values>0.9635995955510617 0.03538928210313448 0.0010111223458038423 0.7168141592920354 0.2743362831858407 0.008849557522123894 0.7777777777777778 0.1111111111111111 0.1111111111111111 0.7142857142857143 0.14285714285714285 0.14285714285714285 0.2 0.2 0.6 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.42857142857142855 0.42857142857142855 0.14285714285714285 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.6 0.06666666666666667 0.3333333333333333 0.3333333333333333 0.5555555555555556 0.1111111111111111 0.6 0.2 0.2 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.42857142857142855 0.42857142857142855 0.14285714285714285 0.6 0.2 0.2 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="compactness_se" />
+          <Variable name="compactness_mean" />
+        </Variables>
+        <Values>0.9686369119420989 0.030156815440289506 0.0012062726176115801 0.7301038062283737 0.23875432525951557 0.031141868512110725 0.10344827586206896 0.7241379310344828 0.1724137931034483</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="concavity_se" />
+          <Variable name="fractal_dimension_se" />
+        </Variables>
+        <Values>0.9964125560538116 8.968609865470852E-4 0.0026905829596412557 0.6521739130434783 0.30434782608695654 0.043478260869565216 0.5555555555555556 0.1111111111111111 0.3333333333333333</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="concave points_se" />
+          <Variable name="diagnosis" />
+          <Variable name="perimeter_se" />
+          <Variable name="compactness_se" />
+          <Variable name="concavity_se" />
+        </Variables>
+        <Values>0.8651026392961877 0.13196480938416422 0.002932551319648094 0.9550224887556222 0.043478260869565216 0.0014992503748125937 0.07692307692307693 0.8461538461538461 0.07692307692307693 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.6 0.2 0.2 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3090909090909091 0.6727272727272727 0.01818181818181818 0.6585365853658537 0.3170731707317073 0.024390243902439025 0.3333333333333333 0.4666666666666667 0.2 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.2 0.6 0.2 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.6 0.2 0.2 0.14285714285714285 0.7142857142857143 0.14285714285714285 0.14285714285714285 0.7142857142857143 0.14285714285714285 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.2 0.2 0.6 0.14285714285714285 0.7142857142857143 0.14285714285714285 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.2 0.6 0.2 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.2 0.2 0.6 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="symmetry_se" />
+          <Variable name="compactness_se" />
+        </Variables>
+        <Values>0.9429695181907571 0.05211406096361849 0.004916420845624385 0.7565217391304347 0.1826086956521739 0.06086956521739131 0.2 0.7333333333333333 0.06666666666666667</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="fractal_dimension_se" />
+          <Variable name="compactness_se" />
+        </Variables>
+        <Values>0.9980334316617503 9.832841691248771E-4 9.832841691248771E-4 0.8260869565217391 0.16521739130434782 0.008695652173913044 0.3333333333333333 0.2 0.4666666666666667</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="radius_worst" />
+          <Variable name="perimeter_worst" />
+        </Variables>
+        <Values>0.9653035935563816 0.03345724907063197 0.0012391573729863693 0.029900332225913623 0.9401993355481728 0.029900332225913623 0.02564102564102564 0.1282051282051282 0.8461538461538461</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="texture_worst" />
+          <Variable name="diagnosis" />
+          <Variable name="texture_mean" />
+          <Variable name="concavity_se" />
+        </Variables>
+        <Values>0.4789915966386555 0.5126050420168067 0.008403361344537815 0.7828571428571428 0.21523809523809523 0.0019047619047619048 0.037037037037037035 0.8922558922558923 0.0707070707070707 0.10614525139664804 0.8212290502793296 0.07262569832402235 0.06666666666666667 0.2 0.7333333333333333 0.09090909090909091 0.2727272727272727 0.6363636363636364 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.2 0.6 0.2 0.7142857142857143 0.14285714285714285 0.14285714285714285 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.7142857142857143 0.14285714285714285 0.14285714285714285 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="perimeter_worst" />
+          <Variable name="area_mean" />
+          <Variable name="radius_se" />
+        </Variables>
+        <Values>0.8795180722891566 0.11938663745892661 0.001095290251916758 0.00546448087431694 0.9453551912568307 0.04918032786885246 0.07692307692307693 0.07692307692307693 0.8461538461538461 0.23076923076923078 0.6923076923076923 0.07692307692307693 0.04 0.36 0.6 0.2 0.6 0.2 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.14285714285714285 0.14285714285714285 0.7142857142857143</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="area_worst" />
+          <Variable name="radius_se" />
+          <Variable name="perimeter_se" />
+          <Variable name="area_se" />
+        </Variables>
+        <Values>0.8867579908675799 0.10684931506849316 0.006392694063926941 0.2 0.6 0.2 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.2727272727272727 0.6363636363636364 0.09090909090909091 0.3684210526315789 0.5789473684210527 0.05263157894736842 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.14285714285714285 0.14285714285714285 0.7142857142857143 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.2 0.6 0.2 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.14285714285714285 0.42857142857142855 0.42857142857142855</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="smoothness_worst" />
+          <Variable name="smoothness_mean" />
+          <Variable name="concavity_se" />
+          <Variable name="fractal_dimension_se" />
+          <Variable name="fractal_dimension_worst" />
+        </Variables>
+        <Values>0.7029177718832891 0.29442970822281167 0.002652519893899204 0.13195548489666137 0.8378378378378378 0.030206677265500796 0.07692307692307693 0.6923076923076923 0.23076923076923078 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.6 0.2 0.2 0.6 0.2 0.2 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.2 0.6 0.2 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.6 0.2 0.2 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.5555555555555556 0.1111111111111111 0.012345679012345678 0.7037037037037037 0.2839506172839506 0.06666666666666667 0.2 0.7333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.2 0.6 0.2 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.23076923076923078 0.5384615384615384 0.23076923076923078 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.6 0.2 0.2 0.6 0.2 0.2 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.6 0.2 0.2 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.2 0.6 0.2 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.2 0.2 0.6 0.2 0.2 0.6 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="compactness_worst" />
+          <Variable name="concave points_worst" />
+        </Variables>
+        <Values>0.9890710382513661 0.009107468123861567 0.0018214936247723133 0.7788235294117647 0.20941176470588235 0.011764705882352941 0.23699421965317918 0.6647398843930635 0.09826589595375723</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="concavity_worst" />
+          <Variable name="concavity_mean" />
+          <Variable name="compactness_worst" />
+        </Variables>
+        <Values>0.9853836784409257 0.013398294762484775 0.001218026796589525 0.6559139784946236 0.3333333333333333 0.010752688172043012 0.42857142857142855 0.42857142857142855 0.14285714285714285 0.4782608695652174 0.5072463768115942 0.014492753623188406 0.061946902654867256 0.8938053097345132 0.04424778761061947 0.030303030303030304 0.7575757575757576 0.21212121212121213 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.047619047619047616 0.5238095238095238 0.42857142857142855 0.2 0.2 0.6</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="concave points_worst" />
+          <Variable name="diagnosis" />
+          <Variable name="perimeter_mean" />
+          <Variable name="area_se" />
+          <Variable name="perimeter_worst" />
+        </Variables>
+        <Values>0.0847457627118644 0.5932203389830508 0.3220338983050847 0.7901430842607313 0.2082670906200318 0.001589825119236884 0.17073170731707318 0.7560975609756098 0.07317073170731707 0.3563218390804598 0.632183908045977 0.011494252873563218 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.14285714285714285 0.42857142857142855 0.42857142857142855 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.025454545454545455 0.6 0.37454545454545457 0.7142857142857143 0.14285714285714285 0.14285714285714285 0.05263157894736842 0.05263157894736842 0.8947368421052632 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.2 0.2 0.6 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.09090909090909091 0.09090909090909091 0.8181818181818182 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.043478260869565216 0.13043478260869565 0.8260869565217391 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.2 0.6 0.2 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.2 0.6 0.2 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.14285714285714285 0.42857142857142855 0.42857142857142855 0.3333333333333333 0.3333333333333333 0.3333333333333333</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="symmetry_worst" />
+          <Variable name="symmetry_mean" />
+          <Variable name="compactness_worst" />
+        </Variables>
+        <Values>0.9863325740318907 0.011389521640091117 0.002277904328018223 0.8064516129032258 0.1913978494623656 0.002150537634408602 0.7647058823529411 0.17647058823529413 0.058823529411764705 0.92 0.04 0.04 0.40606060606060607 0.5878787878787879 0.006060606060606061 0.2 0.52 0.28 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.06666666666666667 0.8666666666666667 0.06666666666666667 0.09090909090909091 0.45454545454545453 0.45454545454545453</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="fractal_dimension_worst" />
+          <Variable name="fractal_dimension_se" />
+          <Variable name="compactness_worst" />
+        </Variables>
+        <Values>0.9866518353726362 0.012235817575083427 0.0011123470522803114 0.38461538461538464 0.5384615384615384 0.07692307692307693 0.3333333333333333 0.5555555555555556 0.1111111111111111 0.6119402985074627 0.38308457711442784 0.004975124378109453 0.2727272727272727 0.6363636363636364 0.09090909090909091 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.14285714285714285 0.6190476190476191 0.23809523809523808 0.2 0.6 0.2 0.3333333333333333 0.3333333333333333 0.3333333333333333</Values>
+      </Potential>
+    </Potentials>
+  </ProbNet>
+  <InferenceOptions>
+    <MulticriteriaOptions>
+      <SelectedAnalysisType>UNICRITERION</SelectedAnalysisType>
+      <Unicriterion>
+        <Scales>
+          <Scale Criterion="---" Value="1.0" />
+        </Scales>
+      </Unicriterion>
+      <CostEffectiveness>
+        <Scales>
+          <Scale Criterion="---" Value="1.0" />
+        </Scales>
+        <CE_Criteria>
+          <CE_Criterion Criterion="---" Value="Cost" />
+        </CE_Criteria>
+      </CostEffectiveness>
+    </MulticriteriaOptions>
+  </InferenceOptions>
+</ProbModelXML>
