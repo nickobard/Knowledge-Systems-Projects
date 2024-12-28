@@ -18,9 +18,11 @@ def substitutions(atoms: list[str], rule: trule.TRule):
     return atoms_combinations
 
 
-def unify(x, y, substitution = dict()):
+def unify(x, y, substitution = {}):
     """
-     Unify algorithm, simplified for this task.
+     Checks if two facts are unifiable. The idea of unification is very simplified for this task.
+     Because we expect only atoms in facts in KB and consequents facts do not have variable arguments, but also atoms,
+     we can use just compare method to compare both facts. Same facts are unifiable, with substitution as empty set.
     """
     if substitution is None:
         return None
