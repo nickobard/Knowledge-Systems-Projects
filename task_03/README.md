@@ -54,6 +54,8 @@ In result, we get following the network, which combines use of both algorithms a
 
 ![bayes_net_apc_ihc.png](images/bayes_net_apc_ihc.png)
 
+Note: we used default hyperparameters for PC algorithm and Hill Climbing (or same as in 1). and 2).).
+
 #### 4) Final Network - Manual Adjustments
 
 In the 3). network we may notice that there are meaningless connection (and potentially meaningless nodes) - for our classification we are interested only in connections and nodes that lead to `diagnosis`.
