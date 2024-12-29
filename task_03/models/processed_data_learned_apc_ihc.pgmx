@@ -1,0 +1,886 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProbModelXML formatVersion="0.2.0">
+  <ProbNet type="BayesianNetwork">
+    <DecisionCriteria>
+      <Criterion name="---" unit="---" />
+    </DecisionCriteria>
+    <AdditionalProperties>
+      <Property name="hasElviraProperties" value="yes" />
+    </AdditionalProperties>
+    <Variables>
+      <Variable name="diagnosis" type="finiteStates" role="chance">
+        <Coordinates x="1531" y="58" />
+        <AdditionalProperties>
+          <Property name="hasElviraProperties" value="yes" />
+        </AdditionalProperties>
+        <States>
+          <State name="M" />
+          <State name="B" />
+        </States>
+      </Variable>
+      <Variable name="radius_mean" type="discretized" role="chance">
+        <Coordinates x="1541" y="483" />
+        <AdditionalProperties>
+          <Property name="hasElviraProperties" value="yes" />
+        </AdditionalProperties>
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[6.981 , 14.024]" />
+          <State name="(14.024 , 21.067]" />
+          <State name="(21.067 , 28.11]" />
+        </States>
+        <Thresholds>
+          <Threshold value="6.981" belongsTo="right" />
+          <Threshold value="14.024" belongsTo="left" />
+          <Threshold value="21.067" belongsTo="left" />
+          <Threshold value="28.11" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="texture_mean" type="discretized" role="chance">
+        <Coordinates x="1341" y="157" />
+        <AdditionalProperties>
+          <Property name="hasElviraProperties" value="yes" />
+        </AdditionalProperties>
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[9.71 , 19.56666666666667]" />
+          <State name="(19.56666666666667 , 29.423333333333336]" />
+          <State name="(29.423333333333336 , 39.28]" />
+        </States>
+        <Thresholds>
+          <Threshold value="9.71" belongsTo="right" />
+          <Threshold value="19.56666666666667" belongsTo="left" />
+          <Threshold value="29.423333333333336" belongsTo="left" />
+          <Threshold value="39.28" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="perimeter_mean" type="discretized" role="chance">
+        <Coordinates x="1538" y="421" />
+        <AdditionalProperties>
+          <Property name="hasElviraProperties" value="yes" />
+        </AdditionalProperties>
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[43.79 , 92.02666666666667]" />
+          <State name="(92.02666666666667 , 140.26333333333335]" />
+          <State name="(140.26333333333335 , 188.5]" />
+        </States>
+        <Thresholds>
+          <Threshold value="43.79" belongsTo="right" />
+          <Threshold value="92.02666666666667" belongsTo="left" />
+          <Threshold value="140.26333333333335" belongsTo="left" />
+          <Threshold value="188.5" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="area_mean" type="discretized" role="chance">
+        <Coordinates x="1957" y="577" />
+        <AdditionalProperties>
+          <Property name="hasElviraProperties" value="yes" />
+        </AdditionalProperties>
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[143.5 , 929.3333333333334]" />
+          <State name="(929.3333333333334 , 1715.1666666666667]" />
+          <State name="(1715.1666666666667 , 2501.0]" />
+        </States>
+        <Thresholds>
+          <Threshold value="143.5" belongsTo="right" />
+          <Threshold value="929.3333333333334" belongsTo="left" />
+          <Threshold value="1715.1666666666667" belongsTo="left" />
+          <Threshold value="2501.0" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="smoothness_mean" type="discretized" role="chance">
+        <Coordinates x="2150" y="396" />
+        <AdditionalProperties>
+          <Property name="hasElviraProperties" value="yes" />
+        </AdditionalProperties>
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[0.05263 , 0.08955333333333333]" />
+          <State name="(0.08955333333333333 , 0.12647666666666665]" />
+          <State name="(0.12647666666666665 , 0.1634]" />
+        </States>
+        <Thresholds>
+          <Threshold value="0.05263" belongsTo="right" />
+          <Threshold value="0.08955333333333333" belongsTo="left" />
+          <Threshold value="0.12647666666666665" belongsTo="left" />
+          <Threshold value="0.1634" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="compactness_mean" type="discretized" role="chance">
+        <Coordinates x="2174" y="503" />
+        <AdditionalProperties>
+          <Property name="hasElviraProperties" value="yes" />
+        </AdditionalProperties>
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[0.01938 , 0.12805333333333332]" />
+          <State name="(0.12805333333333332 , 0.23672666666666667]" />
+          <State name="(0.23672666666666667 , 0.3454]" />
+        </States>
+        <Thresholds>
+          <Threshold value="0.01938" belongsTo="right" />
+          <Threshold value="0.12805333333333332" belongsTo="left" />
+          <Threshold value="0.23672666666666667" belongsTo="left" />
+          <Threshold value="0.3454" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="concavity_mean" type="discretized" role="chance">
+        <Coordinates x="1356" y="602" />
+        <AdditionalProperties>
+          <Property name="hasElviraProperties" value="yes" />
+        </AdditionalProperties>
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[0.0 , 0.14226666666666668]" />
+          <State name="(0.14226666666666668 , 0.28453333333333336]" />
+          <State name="(0.28453333333333336 , 0.42680000000000007]" />
+        </States>
+        <Thresholds>
+          <Threshold value="0.0" belongsTo="right" />
+          <Threshold value="0.14226666666666668" belongsTo="left" />
+          <Threshold value="0.28453333333333336" belongsTo="left" />
+          <Threshold value="0.4268" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="concave points_mean" type="discretized" role="chance">
+        <Coordinates x="1347" y="338" />
+        <AdditionalProperties>
+          <Property name="hasElviraProperties" value="yes" />
+        </AdditionalProperties>
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[0.0 , 0.06706666666666666]" />
+          <State name="(0.06706666666666666 , 0.13413333333333333]" />
+          <State name="(0.13413333333333333 , 0.2012]" />
+        </States>
+        <Thresholds>
+          <Threshold value="0.0" belongsTo="right" />
+          <Threshold value="0.06706666666666666" belongsTo="left" />
+          <Threshold value="0.13413333333333333" belongsTo="left" />
+          <Threshold value="0.2012" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="symmetry_mean" type="discretized" role="chance">
+        <Coordinates x="2128" y="346" />
+        <AdditionalProperties>
+          <Property name="hasElviraProperties" value="yes" />
+        </AdditionalProperties>
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[0.106 , 0.172]" />
+          <State name="(0.172 , 0.238]" />
+          <State name="(0.238 , 0.304]" />
+        </States>
+        <Thresholds>
+          <Threshold value="0.106" belongsTo="right" />
+          <Threshold value="0.172" belongsTo="left" />
+          <Threshold value="0.238" belongsTo="left" />
+          <Threshold value="0.304" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="fractal_dimension_mean" type="discretized" role="chance">
+        <Coordinates x="2184" y="605" />
+        <AdditionalProperties>
+          <Property name="hasElviraProperties" value="yes" />
+        </AdditionalProperties>
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[0.04996 , 0.06578666666666666]" />
+          <State name="(0.06578666666666666 , 0.08161333333333333]" />
+          <State name="(0.08161333333333333 , 0.09744]" />
+        </States>
+        <Thresholds>
+          <Threshold value="0.04996" belongsTo="right" />
+          <Threshold value="0.06578666666666666" belongsTo="left" />
+          <Threshold value="0.08161333333333333" belongsTo="left" />
+          <Threshold value="0.09744" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="radius_se" type="discretized" role="chance">
+        <Coordinates x="2110" y="167" />
+        <AdditionalProperties>
+          <Property name="hasElviraProperties" value="yes" />
+        </AdditionalProperties>
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[0.1115 , 1.032]" />
+          <State name="(1.032 , 1.9525000000000001]" />
+          <State name="(1.9525000000000001 , 2.873]" />
+        </States>
+        <Thresholds>
+          <Threshold value="0.112" belongsTo="right" />
+          <Threshold value="1.032" belongsTo="left" />
+          <Threshold value="1.953" belongsTo="left" />
+          <Threshold value="2.873" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="texture_se" type="discretized" role="chance">
+        <Coordinates x="1352" y="763" />
+        <AdditionalProperties>
+          <Property name="hasElviraProperties" value="yes" />
+        </AdditionalProperties>
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[0.3602 , 1.8684666666666667]" />
+          <State name="(1.8684666666666667 , 3.376733333333333]" />
+          <State name="(3.376733333333333 , 4.885]" />
+        </States>
+        <Thresholds>
+          <Threshold value="0.3602" belongsTo="right" />
+          <Threshold value="1.8684666666666667" belongsTo="left" />
+          <Threshold value="3.376733333333333" belongsTo="left" />
+          <Threshold value="4.885" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="perimeter_se" type="discretized" role="chance">
+        <Coordinates x="1920" y="233" />
+        <AdditionalProperties>
+          <Property name="hasElviraProperties" value="yes" />
+        </AdditionalProperties>
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[0.757 , 7.831333333333332]" />
+          <State name="(7.831333333333332 , 14.905666666666665]" />
+          <State name="(14.905666666666665 , 21.98]" />
+        </States>
+        <Thresholds>
+          <Threshold value="0.757" belongsTo="right" />
+          <Threshold value="7.831" belongsTo="left" />
+          <Threshold value="14.906" belongsTo="left" />
+          <Threshold value="21.98" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="smoothness_se" type="discretized" role="chance">
+        <Coordinates x="1945" y="391" />
+        <AdditionalProperties>
+          <Property name="hasElviraProperties" value="yes" />
+        </AdditionalProperties>
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[0.001713 , 0.011518666666666667]" />
+          <State name="(0.011518666666666667 , 0.021324333333333334]" />
+          <State name="(0.021324333333333334 , 0.03113]" />
+        </States>
+        <Thresholds>
+          <Threshold value="0.001713" belongsTo="right" />
+          <Threshold value="0.011518666666666667" belongsTo="left" />
+          <Threshold value="0.021324333333333334" belongsTo="left" />
+          <Threshold value="0.03113" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="compactness_se" type="discretized" role="chance">
+        <Coordinates x="1939" y="440" />
+        <AdditionalProperties>
+          <Property name="hasElviraProperties" value="yes" />
+        </AdditionalProperties>
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[0.002252 , 0.04663466666666666]" />
+          <State name="(0.04663466666666666 , 0.09101733333333333]" />
+          <State name="(0.09101733333333333 , 0.1354]" />
+        </States>
+        <Thresholds>
+          <Threshold value="0.002252" belongsTo="right" />
+          <Threshold value="0.04663466666666666" belongsTo="left" />
+          <Threshold value="0.09101733333333333" belongsTo="left" />
+          <Threshold value="0.1354" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="concavity_se" type="discretized" role="chance">
+        <Coordinates x="1943" y="343" />
+        <AdditionalProperties>
+          <Property name="hasElviraProperties" value="yes" />
+        </AdditionalProperties>
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[0.0 , 0.132]" />
+          <State name="(0.132 , 0.264]" />
+          <State name="(0.264 , 0.396]" />
+        </States>
+        <Thresholds>
+          <Threshold value="0.0" belongsTo="right" />
+          <Threshold value="0.132" belongsTo="left" />
+          <Threshold value="0.264" belongsTo="left" />
+          <Threshold value="0.396" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="concave points_se" type="discretized" role="chance">
+        <Coordinates x="1352" y="651" />
+        <AdditionalProperties>
+          <Property name="hasElviraProperties" value="yes" />
+        </AdditionalProperties>
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[0.0 , 0.017596666666666667]" />
+          <State name="(0.017596666666666667 , 0.03519333333333333]" />
+          <State name="(0.03519333333333333 , 0.052790000000000004]" />
+        </States>
+        <Thresholds>
+          <Threshold value="0.0" belongsTo="right" />
+          <Threshold value="0.017596666666666667" belongsTo="left" />
+          <Threshold value="0.03519333333333333" belongsTo="left" />
+          <Threshold value="0.05279" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="symmetry_se" type="discretized" role="chance">
+        <Coordinates x="1353" y="712" />
+        <AdditionalProperties>
+          <Property name="hasElviraProperties" value="yes" />
+        </AdditionalProperties>
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[0.007882 , 0.03157133333333334]" />
+          <State name="(0.03157133333333334 , 0.05526066666666667]" />
+          <State name="(0.05526066666666667 , 0.07895]" />
+        </States>
+        <Thresholds>
+          <Threshold value="0.007882" belongsTo="right" />
+          <Threshold value="0.03157133333333334" belongsTo="left" />
+          <Threshold value="0.05526066666666667" belongsTo="left" />
+          <Threshold value="0.07895" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="fractal_dimension_se" type="discretized" role="chance">
+        <Coordinates x="1950" y="507" />
+        <AdditionalProperties>
+          <Property name="hasElviraProperties" value="yes" />
+        </AdditionalProperties>
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[8.948E-4 , 0.010543199999999999]" />
+          <State name="(0.010543199999999999 , 0.0201916]" />
+          <State name="(0.0201916 , 0.02984]" />
+        </States>
+        <Thresholds>
+          <Threshold value="8.948E-4" belongsTo="right" />
+          <Threshold value="0.010543199999999999" belongsTo="left" />
+          <Threshold value="0.0201916" belongsTo="left" />
+          <Threshold value="0.02984" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="radius_worst" type="discretized" role="chance">
+        <Coordinates x="1348" y="271" />
+        <AdditionalProperties>
+          <Property name="hasElviraProperties" value="yes" />
+        </AdditionalProperties>
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[7.93 , 17.299999999999997]" />
+          <State name="(17.299999999999997 , 26.669999999999998]" />
+          <State name="(26.669999999999998 , 36.04]" />
+        </States>
+        <Thresholds>
+          <Threshold value="7.93" belongsTo="right" />
+          <Threshold value="17.299999999999997" belongsTo="left" />
+          <Threshold value="26.669999999999998" belongsTo="left" />
+          <Threshold value="36.04" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="texture_worst" type="discretized" role="chance">
+        <Coordinates x="1921" y="190" />
+        <AdditionalProperties>
+          <Property name="hasElviraProperties" value="yes" />
+        </AdditionalProperties>
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[12.02 , 24.526666666666664]" />
+          <State name="(24.526666666666664 , 37.03333333333333]" />
+          <State name="(37.03333333333333 , 49.53999999999999]" />
+        </States>
+        <Thresholds>
+          <Threshold value="12.02" belongsTo="right" />
+          <Threshold value="24.526666666666664" belongsTo="left" />
+          <Threshold value="37.03333333333333" belongsTo="left" />
+          <Threshold value="49.54" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="perimeter_worst" type="discretized" role="chance">
+        <Coordinates x="1345" y="208" />
+        <AdditionalProperties>
+          <Property name="hasElviraProperties" value="yes" />
+        </AdditionalProperties>
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[50.41 , 117.33999999999999]" />
+          <State name="(117.33999999999999 , 184.26999999999998]" />
+          <State name="(184.26999999999998 , 251.19999999999996]" />
+        </States>
+        <Thresholds>
+          <Threshold value="50.41" belongsTo="right" />
+          <Threshold value="117.33999999999999" belongsTo="left" />
+          <Threshold value="184.26999999999998" belongsTo="left" />
+          <Threshold value="251.2" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="area_worst" type="discretized" role="chance">
+        <Coordinates x="1929" y="289" />
+        <AdditionalProperties>
+          <Property name="hasElviraProperties" value="yes" />
+        </AdditionalProperties>
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[185.2 , 1541.4666666666667]" />
+          <State name="(1541.4666666666667 , 2897.733333333333]" />
+          <State name="(2897.733333333333 , 4254.0]" />
+        </States>
+        <Thresholds>
+          <Threshold value="185.2" belongsTo="right" />
+          <Threshold value="1541.4666666666667" belongsTo="left" />
+          <Threshold value="2897.733333333333" belongsTo="left" />
+          <Threshold value="4254.0" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="smoothness_worst" type="discretized" role="chance">
+        <Coordinates x="2139" y="286" />
+        <AdditionalProperties>
+          <Property name="hasElviraProperties" value="yes" />
+        </AdditionalProperties>
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[0.07117 , 0.12164666666666667]" />
+          <State name="(0.12164666666666667 , 0.17212333333333335]" />
+          <State name="(0.17212333333333335 , 0.22260000000000002]" />
+        </States>
+        <Thresholds>
+          <Threshold value="0.07117" belongsTo="right" />
+          <Threshold value="0.12164666666666667" belongsTo="left" />
+          <Threshold value="0.17212333333333335" belongsTo="left" />
+          <Threshold value="0.2226" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="compactness_worst" type="discretized" role="chance">
+        <Coordinates x="2163" y="547" />
+        <AdditionalProperties>
+          <Property name="hasElviraProperties" value="yes" />
+        </AdditionalProperties>
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[0.02729 , 0.37085999999999997]" />
+          <State name="(0.37085999999999997 , 0.71443]" />
+          <State name="(0.71443 , 1.058]" />
+        </States>
+        <Thresholds>
+          <Threshold value="0.02729" belongsTo="right" />
+          <Threshold value="0.37085999999999997" belongsTo="left" />
+          <Threshold value="0.71443" belongsTo="left" />
+          <Threshold value="1.058" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="concavity_worst" type="discretized" role="chance">
+        <Coordinates x="1906" y="141" />
+        <AdditionalProperties>
+          <Property name="hasElviraProperties" value="yes" />
+        </AdditionalProperties>
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[0.0 , 0.41733333333333333]" />
+          <State name="(0.41733333333333333 , 0.8346666666666667]" />
+          <State name="(0.8346666666666667 , 1.252]" />
+        </States>
+        <Thresholds>
+          <Threshold value="0.0" belongsTo="right" />
+          <Threshold value="0.41733333333333333" belongsTo="left" />
+          <Threshold value="0.8346666666666667" belongsTo="left" />
+          <Threshold value="1.252" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="concave points_worst" type="discretized" role="chance">
+        <Coordinates x="1575" y="154" />
+        <AdditionalProperties>
+          <Property name="hasElviraProperties" value="yes" />
+        </AdditionalProperties>
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[0.0 , 0.09699999999999999]" />
+          <State name="(0.09699999999999999 , 0.19399999999999998]" />
+          <State name="(0.19399999999999998 , 0.291]" />
+        </States>
+        <Thresholds>
+          <Threshold value="0.0" belongsTo="right" />
+          <Threshold value="0.09699999999999999" belongsTo="left" />
+          <Threshold value="0.19399999999999998" belongsTo="left" />
+          <Threshold value="0.291" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="symmetry_worst" type="discretized" role="chance">
+        <Coordinates x="2126" y="225" />
+        <AdditionalProperties>
+          <Property name="hasElviraProperties" value="yes" />
+        </AdditionalProperties>
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[0.1565 , 0.3256]" />
+          <State name="(0.3256 , 0.49470000000000003]" />
+          <State name="(0.49470000000000003 , 0.6638]" />
+        </States>
+        <Thresholds>
+          <Threshold value="0.1565" belongsTo="right" />
+          <Threshold value="0.3256" belongsTo="left" />
+          <Threshold value="0.49470000000000003" belongsTo="left" />
+          <Threshold value="0.6638" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="fractal_dimension_worst" type="discretized" role="chance">
+        <Coordinates x="2175" y="445" />
+        <AdditionalProperties>
+          <Property name="hasElviraProperties" value="yes" />
+        </AdditionalProperties>
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[0.05504 , 0.10586]" />
+          <State name="(0.10586 , 0.15667999999999999]" />
+          <State name="(0.15667999999999999 , 0.2075]" />
+        </States>
+        <Thresholds>
+          <Threshold value="0.05504" belongsTo="right" />
+          <Threshold value="0.10586" belongsTo="left" />
+          <Threshold value="0.15667999999999999" belongsTo="left" />
+          <Threshold value="0.2075" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+      <Variable name="area_se" type="discretized" role="chance">
+        <Coordinates x="1953" y="631" />
+        <AdditionalProperties>
+          <Property name="hasElviraProperties" value="yes" />
+        </AdditionalProperties>
+        <Unit />
+        <Precision>0.001</Precision>
+        <States>
+          <State name="[6.802 , 185.268]" />
+          <State name="(185.268 , 363.73400000000004]" />
+          <State name="(363.73400000000004 , 542.2]" />
+        </States>
+        <Thresholds>
+          <Threshold value="6.802" belongsTo="right" />
+          <Threshold value="185.268" belongsTo="left" />
+          <Threshold value="363.73400000000004" belongsTo="left" />
+          <Threshold value="542.2" belongsTo="left" />
+        </Thresholds>
+      </Variable>
+    </Variables>
+    <Links>
+      <Link directed="true">
+        <Variable name="radius_mean" />
+        <Variable name="perimeter_mean" />
+      </Link>
+      <Link directed="true">
+        <Variable name="texture_mean" />
+        <Variable name="diagnosis" />
+      </Link>
+      <Link directed="true">
+        <Variable name="perimeter_mean" />
+        <Variable name="concave points_mean" />
+      </Link>
+      <Link directed="true">
+        <Variable name="perimeter_mean" />
+        <Variable name="radius_worst" />
+      </Link>
+      <Link directed="true">
+        <Variable name="perimeter_mean" />
+        <Variable name="concave points_worst" />
+      </Link>
+      <Link directed="true">
+        <Variable name="concavity_mean" />
+        <Variable name="radius_mean" />
+      </Link>
+      <Link directed="true">
+        <Variable name="concavity_mean" />
+        <Variable name="perimeter_mean" />
+      </Link>
+      <Link directed="true">
+        <Variable name="concavity_mean" />
+        <Variable name="concave points_mean" />
+      </Link>
+      <Link directed="true">
+        <Variable name="concave points_mean" />
+        <Variable name="radius_worst" />
+      </Link>
+      <Link directed="true">
+        <Variable name="concave points_mean" />
+        <Variable name="concave points_worst" />
+      </Link>
+      <Link directed="true">
+        <Variable name="texture_se" />
+        <Variable name="symmetry_se" />
+      </Link>
+      <Link directed="true">
+        <Variable name="concave points_se" />
+        <Variable name="concavity_mean" />
+      </Link>
+      <Link directed="true">
+        <Variable name="symmetry_se" />
+        <Variable name="concave points_se" />
+      </Link>
+      <Link directed="true">
+        <Variable name="radius_worst" />
+        <Variable name="perimeter_worst" />
+      </Link>
+      <Link directed="true">
+        <Variable name="perimeter_worst" />
+        <Variable name="diagnosis" />
+      </Link>
+      <Link directed="true">
+        <Variable name="perimeter_worst" />
+        <Variable name="texture_mean" />
+      </Link>
+      <Link directed="true">
+        <Variable name="concave points_worst" />
+        <Variable name="diagnosis" />
+      </Link>
+    </Links>
+    <Potentials>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="diagnosis" />
+          <Variable name="texture_mean" />
+          <Variable name="perimeter_worst" />
+          <Variable name="concave points_worst" />
+        </Variables>
+        <Values>0.012953367875647668 0.9870466321243523 0.034722222222222224 0.9652777777777778 0.25 0.75 0.16666666666666666 0.8333333333333334 0.875 0.125 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.08333333333333333 0.9166666666666666 0.5520833333333334 0.4479166666666667 0.5 0.5 0.9807692307692307 0.019230769230769232 0.9913793103448276 0.008620689655172414 0.75 0.25 0.8333333333333334 0.16666666666666666 0.75 0.25 0.75 0.25 0.875 0.125 0.9375 0.0625 0.5 0.5 0.9736842105263158 0.02631578947368421 0.9878048780487805 0.012195121951219513 0.875 0.125 0.8333333333333334 0.16666666666666666 0.9615384615384616 0.038461538461538464 0.5 0.5</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="radius_mean" />
+          <Variable name="concavity_mean" />
+        </Variables>
+        <Values>0.7249154453213078 0.26719278466741825 0.007891770011273957 0.14027149321266968 0.755656108597285 0.10407239819004525 0.1282051282051282 0.4358974358974359 0.4358974358974359</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="texture_mean" />
+          <Variable name="perimeter_worst" />
+        </Variables>
+        <Values>0.6753407682775713 0.3110285006195787 0.013630731102850062 0.3023255813953488 0.6677740863787376 0.029900332225913623 0.23076923076923078 0.6923076923076923 0.07692307692307693</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="perimeter_mean" />
+          <Variable name="radius_mean" />
+          <Variable name="concavity_mean" />
+        </Variables>
+        <Values>0.993798449612403 0.004651162790697674 0.0015503875968992248 0.06276150627615062 0.9330543933054394 0.0041841004184100415 0.1111111111111111 0.3333333333333333 0.5555555555555556 0.8787878787878788 0.09090909090909091 0.030303030303030304 0.005917159763313609 0.9881656804733728 0.005917159763313609 0.04 0.12 0.84 0.7142857142857143 0.14285714285714285 0.14285714285714285 0.05263157894736842 0.6842105263157895 0.2631578947368421 0.05263157894736842 0.05263157894736842 0.8947368421052632</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="area_mean" />
+        </Variables>
+        <Values>0.9975216852540273 0.0012391573729863693 0.0012391573729863693</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="smoothness_mean" />
+        </Variables>
+        <Values>0.45476477683956573 0.5392038600723763 0.006031363088057901</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="compactness_mean" />
+        </Variables>
+        <Values>0.9342265529841657 0.06455542021924482 0.001218026796589525</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="concavity_mean" />
+          <Variable name="concave points_se" />
+        </Variables>
+        <Values>0.8413021363173957 0.14547304170905392 0.013224821973550356 0.38064516129032255 0.47096774193548385 0.14838709677419354 0.1111111111111111 0.5555555555555556 0.3333333333333333</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="concave points_mean" />
+          <Variable name="perimeter_mean" />
+          <Variable name="concavity_mean" />
+        </Variables>
+        <Values>0.9817351598173516 0.0167427701674277 0.0015220700152207 0.7205240174672489 0.27510917030567683 0.004366812227074236 0.14285714285714285 0.7142857142857143 0.14285714285714285 0.3548387096774194 0.6129032258064516 0.03225806451612903 0.05202312138728324 0.9075144508670521 0.04046242774566474 0.043478260869565216 0.391304347826087 0.5652173913043478 0.42857142857142855 0.42857142857142855 0.14285714285714285 0.06666666666666667 0.4666666666666667 0.4666666666666667 0.043478260869565216 0.043478260869565216 0.9130434782608695</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="symmetry_mean" />
+        </Variables>
+        <Values>0.6517150395778364 0.3403693931398417 0.0079155672823219</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="fractal_dimension_mean" />
+        </Variables>
+        <Values>0.7721943048576214 0.22613065326633167 0.0016750418760469012</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="radius_se" />
+        </Variables>
+        <Values>0.9950433705080545 0.0037174721189591076 0.0012391573729863693</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="texture_se" />
+        </Variables>
+        <Values>0.8860648553900088 0.10604732690622261 0.007887817703768623</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="perimeter_se" />
+        </Variables>
+        <Values>0.9908508691674291 0.008234217749313814 9.149130832570906E-4</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="smoothness_se" />
+        </Variables>
+        <Values>0.9618856569709128 0.037111334002006016 0.0010030090270812437</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="compactness_se" />
+        </Variables>
+        <Values>0.9911894273127754 0.007342143906020558 0.0014684287812041115</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="concavity_se" />
+        </Variables>
+        <Values>0.9962859795728877 9.285051067780873E-4 0.002785515320334262</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="concave points_se" />
+          <Variable name="symmetry_se" />
+        </Variables>
+        <Values>0.8836987607244995 0.11344137273593899 0.002859866539561487 0.6235294117647059 0.3176470588235294 0.058823529411764705 0.23076923076923078 0.6923076923076923 0.07692307692307693</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="symmetry_se" />
+          <Variable name="texture_se" />
+        </Variables>
+        <Values>0.9506416584402764 0.04244817374136229 0.006910167818361303 0.6585365853658537 0.3008130081300813 0.04065040650406504 0.45454545454545453 0.45454545454545453 0.09090909090909091</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="fractal_dimension_se" />
+        </Variables>
+        <Values>0.9980217606330366 9.891196834817012E-4 9.891196834817012E-4</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="radius_worst" />
+          <Variable name="perimeter_mean" />
+          <Variable name="concave points_mean" />
+        </Variables>
+        <Values>0.9908952959028832 0.007587253414264037 0.0015174506828528073 0.5085714285714286 0.4742857142857143 0.017142857142857144 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.8787878787878788 0.09090909090909091 0.030303030303030304 0.08370044052863436 0.8766519823788547 0.039647577092511016 0.06666666666666667 0.2 0.7333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.06666666666666667 0.8666666666666667 0.06666666666666667 0.02857142857142857 0.37142857142857144 0.6</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="texture_worst" />
+        </Variables>
+        <Values>0.7302325581395349 0.2682170542635659 0.0015503875968992248</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="perimeter_worst" />
+          <Variable name="radius_worst" />
+        </Variables>
+        <Values>0.9873257287705957 0.011406844106463879 0.0012674271229404308 0.08571428571428572 0.8984126984126984 0.015873015873015872 0.023255813953488372 0.20930232558139536 0.7674418604651163</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="area_worst" />
+        </Variables>
+        <Values>0.9956188389923329 0.0032858707557502738 0.001095290251916758</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="smoothness_worst" />
+        </Variables>
+        <Values>0.7060367454068242 0.29133858267716534 0.0026246719160104987</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="compactness_worst" />
+        </Variables>
+        <Values>0.9560922063666301 0.042810098792535674 0.0010976948408342481</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="concavity_worst" />
+        </Variables>
+        <Values>0.9890710382513661 0.009107468123861567 0.0018214936247723133</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="concave points_worst" />
+          <Variable name="concave points_mean" />
+          <Variable name="perimeter_mean" />
+        </Variables>
+        <Values>0.7572078907435509 0.23520485584218512 0.007587253414264037 0.09090909090909091 0.3939393939393939 0.5151515151515151 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.26857142857142857 0.7028571428571428 0.02857142857142857 0.004405286343612335 0.5594713656387665 0.43612334801762115 0.06666666666666667 0.2 0.7333333333333333 0.3333333333333333 0.3333333333333333 0.3333333333333333 0.06666666666666667 0.3333333333333333 0.6 0.02857142857142857 0.08571428571428572 0.8857142857142857</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="symmetry_worst" />
+        </Variables>
+        <Values>0.9863325740318907 0.011389521640091117 0.002277904328018223</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="fractal_dimension_worst" />
+        </Variables>
+        <Values>0.9973082099596231 0.0013458950201884253 0.0013458950201884253</Values>
+      </Potential>
+      <Potential type="Table" role="conditionalProbability">
+        <Variables>
+          <Variable name="area_se" />
+        </Variables>
+        <Values>0.9981867633726201 9.066183136899365E-4 9.066183136899365E-4</Values>
+      </Potential>
+    </Potentials>
+  </ProbNet>
+  <InferenceOptions>
+    <MulticriteriaOptions>
+      <SelectedAnalysisType>UNICRITERION</SelectedAnalysisType>
+      <Unicriterion>
+        <Scales>
+          <Scale Criterion="---" Value="1.0" />
+        </Scales>
+      </Unicriterion>
+      <CostEffectiveness>
+        <Scales>
+          <Scale Criterion="---" Value="1.0" />
+        </Scales>
+        <CE_Criteria>
+          <CE_Criterion Criterion="---" Value="Cost" />
+        </CE_Criteria>
+      </CostEffectiveness>
+    </MulticriteriaOptions>
+  </InferenceOptions>
+</ProbModelXML>
