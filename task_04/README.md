@@ -1,0 +1,1 @@
+See the [rules_extraction.ipynb](rules_extraction.ipynb), where the task is done and everything is explained.
