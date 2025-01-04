@@ -1,1 +1,0 @@
-See the [fuzzy_inference.ipynb](fuzzy_inference.ipynb), where the task is done and everything is explained.
