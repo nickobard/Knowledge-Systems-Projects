@@ -54,5 +54,9 @@ To required implementation additionally were added:
 - validation of input and querying again if IČO is in incorrect format (letters, longer input, etc.).
 - printed instructions to validate certain fields, if needed.
 
+### Dataset
+
+The dataset consists of images of receipts, but those are not used at all, they are the part of the "assignment story". The task is a simulation of a real world case, where you get the dataset of receipts and an expert in the domain tells the rules how to evaluate the receipts. The real dataset is in the text form [train_data.txt](./dataset/train/train_data.txt).
+
 ## The Assignment
 
