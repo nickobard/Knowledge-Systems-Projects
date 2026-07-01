@@ -1,5 +1,13 @@
 See the [rules_extraction.ipynb](rules_extraction.ipynb), where the task is done and everything is explained.
 
+### Teaser
+
+Random Forest is trained with standard ML approach - tuning hyperparameters and picking the best set of them for the best model.
+
+Example of a tree in a forest:
+
+![tree example](./images/tree_example.png)
+
 
 ## The Assignment
 
