@@ -1,4 +1,4 @@
-### HOW-TO
+## HOW-TO
 
 The program is in [receipts.pl](receipts.pl).
 
@@ -53,3 +53,6 @@ To required implementation additionally were added:
 - automatic IČO checking, where user should type IČO in correct format.
 - validation of input and querying again if IČO is in incorrect format (letters, longer input, etc.).
 - printed instructions to validate certain fields, if needed.
+
+## The Assignment
+
