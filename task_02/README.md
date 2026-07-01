@@ -16,6 +16,7 @@ In the algorithm on the image it only gives values that satisfy certain sentence
 The unification algorithm is straightforward because of the task simplification. 
 
 The complete unification algorithm looks like:
+
 ![unify.png](images/unify.png)
 
 Implementation is simplification of this algorithm.
